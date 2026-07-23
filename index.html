@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Drill Hub — 10U/12U Flag Football</title><style>
+:root{--bg:#0f172a;--card:#1e293b;--card2:#273449;--text:#f1f5f9;--muted:#94a3b8;--line:#334155;--accent:#38bdf8;--gold:#fbbf24}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);padding-bottom:40px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 12px 8px;border-bottom:1px solid var(--line)}
+h1{font-size:17px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+h1 .sub{font-size:11px;color:var(--muted);font-weight:400}
+#search{width:100%;padding:11px 14px;font-size:16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);outline:none}
+#search::placeholder{color:var(--muted)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 13px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:#e2e8f0;text-decoration:none}
+main{padding:10px 12px}
+h2.sect{font-size:15px;margin:18px 0 6px;scroll-margin-top:130px}
+.blurb{font-size:12.5px;color:var(--muted);line-height:1.45;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:2px 0 12px}
+details.drill{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+summary.dhead{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;list-style:none}
+summary.dhead::-webkit-details-marker{display:none}
+summary.dhead::marker{content:""}
+.dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.dname{font-size:15px;font-weight:700;line-height:1.25}
+.dmeta{font-size:11px;color:var(--muted);margin-top:2px}
+.fav{color:var(--gold);font-size:11px;font-weight:700}
+.chev{margin-left:auto;color:var(--muted);flex:0 0 auto;transition:transform .15s}
+details[open]>summary .chev{transform:rotate(90deg)}
+.dbody{padding:0 14px 14px;border-top:1px solid var(--line)}
+.sec{margin-top:11px}
+.sec h4{margin:0 0 4px;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
+.sec p{margin:0;font-size:13.5px;line-height:1.5;color:var(--text)}
+.sec.cues{background:var(--card2);border-radius:10px;padding:10px 12px;margin-top:12px}
+.sec.cues h4{color:var(--gold)}
+.sec.cues ul{margin:0;padding-left:18px}
+.sec.cues li{font-size:13.5px;line-height:1.55;margin-bottom:4px}
+.agebox{border-radius:10px;padding:10px 12px;margin-top:10px;font-size:13.5px;line-height:1.5}
+.agebox h4{margin:0 0 4px;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase}
+.u10{background:#173042;border:1px solid #1d4ed833}
+.u10 h4{color:#7dd3fc}
+.u12{background:#2b1f3a;border:1px solid #9333ea44}
+.u12 h4{color:#c084fc}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.pill{font-size:10.5px;padding:3px 9px;border-radius:999px;background:var(--card2);color:var(--muted);border:1px solid var(--line)}
+.top{display:block;text-align:center;color:var(--muted);font-size:12px;margin:6px 0 14px;text-decoration:none}
+@media print{
+ body{background:#fff;color:#000}header{position:static}
+ #search,.tabs{display:none}
+ details.drill{border:1px solid #999;break-inside:avoid;background:#fff}
+ .dbody{display:block}
+ .dname,.sec p,.sec.cues li,.agebox{color:#000}
+ .sec.cues{background:#f3f3f3}
+ .u10,.u12{background:#f8f8f8;border:1px solid #ccc}
+}
+</style></head><body>
+<header id="topbar">
+<h1>&#127944; Drill Hub <span class="sub">10U / 12U · 6v6 · 58 drills · &#11088; = team favorite</span></h1>
+<input id="search" type="search" placeholder="Search drills, skills, cues&hellip; (works in a browser)">
+<div class="tabs"><a class="tab" href="#qb" style="border-color:#2563eb">🎯 QB Station</a><a class="tab" href="#wr" style="border-color:#16a34a">🙌 Offense — WR</a><a class="tab" href="#rb" style="border-color:#ea580c">⚡ Offense — RB</a><a class="tab" href="#def" style="border-color:#dc2626">🛡️ Defense</a><a class="tab" href="#agi" style="border-color:#9333ea">🚀 Speed &amp; Agility</a></div>
+</header>
+<main><h2 class="sect" id="qb" style="color:#2563eb">🎯 QB Station · 10 drills</h2>
+<div class="blurb">Head coach&#x27;s station. 15-min template: 2 min mechanics micro-circuit → 2 min coverage call-out → 7 min weekly focus drill → 4 min live application vs a rusher with the 5-second clock counted aloud.</div><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Compact-Mechanics Micro-Circuit</div>
+<div class="dmeta">2 min — every session opener · Tom House (3DQB) / Darin Slack C4</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 ball + 1 hand towel per pair</h4><p>QBs pair up 7 yards apart.</p></div>
+<div class="sec"><h4>How it runs</h4><p>(a) 5 towel-drill reps — full throwing motion snapping a towel, freeze the finish. (b) 5 one-knee throws — back knee down, front knee 90°, perfect spirals. (c) 5 quick-feet catch-and-release throws — reset feet, return the ball fast with a clean spiral.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Hips fire first, then shoulders, then arm — the arm is last</li><li>Level head: 1 inch of head movement = 2 inches off at release</li><li>Elbow ~90° at the top; finish with the WRIST FLICK — ball rolls off index toward the pinky side</li><li>Pinky side of the hand turns down on the follow-through</li><li>Self-diagnose: wobble = timing, sail = early head, dirt ball = late hips</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Towel + one-knee only; coach checks elbow height standing beside.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add 5 med-ball rotational scoop tosses (Tuesdays only, 48+ hrs before games); film one slo-mo rep per week and compare release compactness month over month.</div>
+<div class="pills"><span class="pill">Throwing mechanics</span><span class="pill">Release</span><span class="pill">Self-correction</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Punch Plant Quick-Release</div>
+<div class="dmeta">7 min · Glazier Clinics / Tom House</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 cones, 1 WR partner</h4><p>QB in shotgun stance, non-throwing foot forward, back-foot toe just behind front heel. WR at 5-6 yds on a hitch/quick out.</p></div>
+<div class="sec"><h4>How it runs</h4><p>On &#x27;hike,&#x27; QB takes ONE punch step back with the lead foot, plants, throws. Target: ball out under 1.0 second. On &#x27;not open&#x27; call, QB pushes back for depth with short cutting-grass steps and hits target #2.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Toes, knees, hips all point at the target on the plant</li><li>Back ankle roughly perpendicular to the target line</li><li>Feet never stop moving; eyes stay level through the punch</li><li>Quicker feet = quicker release — fix the feet, not the arm</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Start from a static pre-set base: just plant-and-throw to a stationary coach; add the punch step once the release is clean.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Coach calls &#x27;1&#x27; or &#x27;2&#x27; mid-drop so the target is unknown; stopwatch every rep; fastest-accurate-release leaderboard. This is the 5-second-clock weapon.</div>
+<div class="pills"><span class="pill">Quick release</span><span class="pill">Footwork</span><span class="pill">5-second clock</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Three-Step Fire (Rhythm = Route Timing)</div>
+<div class="dmeta">8 min · TeamGenius / NFL FLAG / X&amp;O Labs</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 drop cones, 1-2 WRs</h4><p>Two cones mark exact drop landing spots. WR alternates slant / 5-yd out / curl.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Shotgun 3-step rhythm drop (big step, two quick). Ball out ON the plant of step 3 for slant/out; plant + one hitch for curl. Ball arrives as the WR&#x27;s break finishes.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Each drop step hits the same spot every rep — film from behind</li><li>Last drop step and the WR&#x27;s break are synchronized</li><li>Throw to the spot the break creates — if you wait to SEE open, you&#x27;re late</li><li>Weight loads the back hip on the plant, drives through the front knee</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Throw to an orange landmark cone at the catch point on rhythm — no WR needed.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Mix route calls so the drop rhythm must match the concept; add a trail defender so the ball must beat the flag-puller to the spot.</div>
+<div class="pills"><span class="pill">Rhythm drop</span><span class="pill">Timing</span><span class="pill">Route sync</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Triangle Progression Read (1-2-3 + Checkdown)</div>
+<div class="dmeta">8 min · X&amp;O Labs / Quincy Avery / Whitfield</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 3 cones or 3 receivers</h4><p>Three options form a strong-side triangle: deep at 12, intermediate at 8, checkdown at 3. Coach stands downfield as the defender.</p></div>
+<div class="sec"><h4>How it runs</h4><p>QB takes his 3-step drop; coach silently covers one or two options by stepping toward one. QB works 1 → 2 → 3 with a short hitch between each and throws the first open one. Full cycle inside 4 seconds.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eyes lead the feet — feet re-point at each read</li><li>NO receiver-lock: locking on = interceptions</li><li>Hitch-and-a-half between reads is your internal clock</li><li>The checkdown is a WIN — a 3-yard completion keeps the drive alive at the midfield line</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Two reads only (1 → checkdown); coach covers option 1 obviously.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Coach disguises late (moves after the snap like a sitting zone defender); add an &#x27;alert&#x27; deep shot when the top is vacated; other QBs count the 5-second clock out loud.</div>
+<div class="pills"><span class="pill">Progression reads</span><span class="pill">Decision-making</span><span class="pill">Checkdowns</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Rail Shot / One-Motion Quick Draw</div>
+<div class="dmeta">6 min · Elite 11 Finals</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Net/bucket targets, extra ball</h4><p>QB ready with ball at carriage. Coach with a hand-shield anywhere on a 90° arc, 8-15 yds away.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Coach flashes hands; QB resets feet to the new target line and releases IN ONE MOTION — no re-cock, no false step. 8-10 rapid-fire reps.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Hips carry the ball to the target — never drag the arm across the body</li><li>Compact release: shorten the loop</li><li>Shoulders close then open through the throw; finish with the wrist flick</li><li>Bad spiral = speed the sequence UP, don&#x27;t slow it down</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Targets limited to a 45° arc in front; underhand cone-flash cue.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a &#x27;cover&#x27; call — coach flashes then yanks the target and QB must NOT throw (interception prevention). Track make % and release time season-long.</div>
+<div class="pills"><span class="pill">Quick release</span><span class="pill">Reset footwork</span><span class="pill">Throw inhibition</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Four-Stage Pocket Slide vs 5-Yard Rusher</div>
+<div class="dmeta">8 min · Emory Wilhite / George Whitfield / Kurt Benkert</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 4 cones (5x5 pocket), pool noodle optional</h4><p>4 cones mark a 5x5 pocket. Rusher starts exactly 5 yards away (league blitz depth). WR runs a drag or sits at 8 yds.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Four stages across the season: (1) rusher from a KNOWN side — predetermined slide and throw; (2) two possible rushers, known movement; (3) one rusher, UNKNOWN path — read and react; (4) fully live — slide, eyes downfield, throw inside 4.5s.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Two-inch slides — tight and efficient, never panic-bail</li><li>Eyes NEVER drop to the rusher</li><li>Two hands on the ball — he&#x27;s swiping at it and your flags</li><li>Knees stay bent in the slide; toes stay pointed downfield so you can throw NOW</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stages 1-2 only; rusher at 3/4 speed; noodle chases but can&#x27;t touch.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Stage 4 + the free-run read: when the rusher over-runs the arc, QB legally tucks through the vacated lane (free run vs blitz — costs none of his 2 runs). Score: throw = 1, smart free-run = 2, flag pulled = -1.</div>
+<div class="pills"><span class="pill">Pocket movement</span><span class="pill">Eyes downfield</span><span class="pill">Blitz response</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Hot-Hands Blitz Beater</div>
+<div class="dmeta">7 min · USA Football / flag adaptation</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 WR (hot slant), 1 RB (swing), 1 defender</h4><p>WR on a 3-yd hot slant, RB swinging to the flat. Defender at 7 yds; on some snaps he creeps to the 5-yd blitz mark pre-snap, on others he stays.</p></div>
+<div class="sec"><h4>How it runs</h4><p>QB scans pre-snap. Creep = &#x27;HOT!&#x27; call → snap → ball out to the slant before the rusher covers 5 yards (~1.5s). No creep = normal 3-step rhythm throw. Randomize.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>The pre-snap plan IS the play — know your hot answer before &#x27;hike&#x27;</li><li>Catchable ball slightly in front, chest-high, so the WR runs away from the puller</li><li>Never take a deep drop vs a blitz — depth is death with no blockers</li><li>Run this from the 5-yard line often: it IS your 1-point conversion play</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Coach announces &#x27;blitz&#x27; or &#x27;no blitz&#x27; out loud pre-snap; QB executes the matching answer.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Rusher disguises (creeps then backs out); add the RB as a second hot option and pick the side AWAY from the blitzer.</div>
+<div class="pills"><span class="pill">Pre-snap ID</span><span class="pill">Hot throws</span><span class="pill">XP package</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Safety-Count Call-Out Game (1-High vs 2-High)</div>
+<div class="dmeta">3-4 min opener · USA Football coverage formula / Football MBA</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 3-4 players as a defense</h4><p>QB faces away while coach arranges 3-4 defenders into a shell. No throwing needed — perfect while arms warm up.</p></div>
+<div class="sec"><h4>How it runs</h4><p>QB turns and has 3 seconds to call: &#x27;ONE HIGH — middle closed — best throw is [out/comeback/corner]&#x27; or &#x27;TWO HIGH — middle open — best throw is [seam/middle].&#x27; Then coach sends a WR in motion: defender travels = &#x27;MAN&#x27;, stays = &#x27;ZONE&#x27;, and QB names the beater.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Same litany every time: 1) count safeties, 2) short-side corner, 3) blitz threat</li><li>Motion is the lie detector: chase = man, stay = zone</li><li>Say it OUT LOUD — verbalizing is the test</li><li>Confirm post-snap by the 3rd drop step off the deep defender</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Two pictures only (1-high vs 2-high), 5 seconds to answer.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Live: QB drops and throws the named beater vs the shown shell while the defense disguises (2-high rotating to 1-high at snap). This is the 14U-level skill.</div>
+<div class="pills"><span class="pill">Coverage ID</span><span class="pill">Pre-snap reads</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Sprint-Out / Throw-on-the-Run Ladder</div>
+<div class="dmeta">7 min · NFL FLAG / Will Hewlett</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 3 arc cones, WR or bucket target</h4><p>Arc of 3 cones bending outside either hash. WR runs a matching flood route (out at 6 or comeback). Run BOTH directions.</p></div>
+<div class="sec"><h4>How it runs</h4><p>QB catches the snap, sprints the arc gaining width with shoulders squaring downhill, throws off the run at cone 3 — never planting flat-footed. 4 reps right, 4 left.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Toes and knees lead to the target — hips shift, shoulders square BEFORE release</li><li>Downhill at release; never drifting backward</li><li>Nose of the ball slightly up on the out-breaking throw</li><li>Weak side: extra half-beat to square shoulders — don&#x27;t sling across your body</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Jog-tempo arc, stationary target, strong side only until clean.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Trail rusher pursues the arc; decide inside 5 seconds — throw the out or (blitz rep) tuck upfield for the free run. Rep from the actual no-run-zone spots: sprint-out passing IS this league&#x27;s short-yardage offense.</div>
+<div class="pills"><span class="pill">Throwing on the run</span><span class="pill">No-run-zone offense</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#2563eb"></span>
+<div><div class="dname">Layer Ladder (Touch vs Drive)</div>
+<div class="dmeta">7 min · TeamGenius / Elite 11 grading</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Net/chair at 6, coach at 10, bucket at 18</h4><p>Three targets stacked on one line: drive window at 6 yds (waist-high), coach with raised hand at 10 (the lurker), bucket/hoop at 18 (the drop-in).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Three-throw sets: (1) DRIVE the 6-yd window flat and hard; (2) LAYER over the raised hand, dipping in front of the deep bucket; (3) DROP the 18-yarder in with full touch. Rotate QBs every set.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Same footwork every throw — the change is release point and finish, not a new motion</li><li>Touch throws release earlier and higher; drive throws finish long</li><li>Level eyes on all three</li><li>Score it 3-2-1 by difficulty — season leaderboard</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Two layers only (drive at 5, touch at 12); bigger targets (trash can, hula hoop).</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Random order calls with one drop each; then live — WR runs the stacked route vs a real underneath defender. The layered throw over a sitting zone defender is THE throw that beats older kids.</div>
+<div class="pills"><span class="pill">Accuracy layering</span><span class="pill">Ball flight control</span></div>
+</div></details><a class="top" href="#topbar">&#8679; back to top</a><h2 class="sect" id="wr" style="color:#16a34a">🙌 Offense — WR · 13 drills</h2>
+<div class="blurb">Station template: 2 min hands warm-up → 6-8 min movement drill (routes/releases) → 4-5 min compete drill (contested/traffic). Every rep ends with a catch and a tuck.</div><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Hand-Position Rapid Fire (9-Spot)</div>
+<div class="dmeta">2 min warmup · Competitive Drive / STACK / Emporia St.</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 ball per pair</h4><p>Pairs, 5-7 yds apart.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Partner throws to 9 zones: high left/middle/right, mid left/right, low left/middle/right, plus over-the-shoulder. 3 catches per zone, swap.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Diamond (thumbs together) above the chest; pinkies together below the waist</li><li>Catch with fingertips AWAY from the body — never body-trap</li><li>See the point of the ball through your hands</li><li>Every catch finishes with a violent tuck: catch it, pluck it, TUCK it</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Underhand tosses; call the zone before the throw; 1-count freeze staring at the ball in the hands.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>No calls — read ball flight; add one-hand catches; partner throws on a late &#x27;BALL!&#x27; cue.</div>
+<div class="pills"><span class="pill">Hands</span><span class="pill">Catch technique</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Snap Drill (Late Eyes)</div>
+<div class="dmeta">5 min · Jake Brown (Glazier) / Emporia St.</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2-3 balls</h4><p>Receivers 10 yds from thrower, eyes AWAY from him.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Ball is already in the air when coach yells &#x27;BALL!&#x27; — receiver snaps head around, locates, frames, catches.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Exaggerate eye speed — the head SNAPS</li><li>Frame the ball: hands ready before the eyes find it</li><li>Secure and tuck violently</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stationary receiver, soft toss, longer flight.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Running away from the thrower, over-the-shoulder: extend hands, elbows together, find the ball in the last split second — this is your fade/go-ball timing builder.</div>
+<div class="pills"><span class="pill">Ball location</span><span class="pill">Eye speed</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Break–Drive–Line Speed Cut Lane</div>
+<div class="dmeta">8 min · Drew Lieberman (Sideline Hustle) / Gunter Brewer</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 cones, QB/coach</h4><p>Cone at LOS, cone at 8-10 yds (break point). Two lines so kids break both directions.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Sprint the stem selling vertical (low pads, eat up space), then run the out/dig with the 3-part cadence: BREAK (violent direction change) – DRIVE (round the corner 1.5-2 yds) – LINE (plant and snap flat to the QB). Ball arrives as the head comes around.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Full-stride steps through the break — don&#x27;t chop</li><li>Arms KEEP PUMPING — no airplane arms</li><li>THE EYES ARE THE LAST THING OUT OF THE BREAK</li><li>Never drift upfield after the line step</li><li>Chest over toes — the torso pulls you through the break</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>5-6 yd breaks; walk the 3-part pattern first; cone on the Drive arc as a physical target.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Chad Johnson step audit — max 3 steps in the break, coach counts; add a trailing flag-puller at the break; convert to the 4-step Speed Drop at 10-12 yds.</div>
+<div class="pills"><span class="pill">Route running</span><span class="pill">Speed cuts</span><span class="pill">Separation</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Bam-Step Slant &amp; Snap-Down Curl</div>
+<div class="dmeta">7 min · Riley-Kolste / Lieberman</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 cones, QB</h4><p>LOS cone and break cone at 3-5 yds (slant) or 8-10 (curl). QB throws on rhythm.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Slant reps = Bam Step: stick the outside foot, jam the inside elbow back, break flat at 45°. Curl reps = 2-Step: brake step + sink hips, plant, drive back downhill to the QB.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Sink the hips ON the brake step, not after</li><li>Snap the head WITH the break</li><li>Break as flat as needed to beat the defender to the ball</li><li>Attack the football with hands away from the body — never wait on a curl</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Cones only, no defender; coach holds a hand up as the throw window.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a squat defender with leverage — break AWAY from leverage using a Pressure Step stem (stem at the shoulder you&#x27;ll break away from); then live vs a DB.</div>
+<div class="pills"><span class="pill">Hard cuts</span><span class="pill">Slants</span><span class="pill">Curls</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Cushion-Killer Stem &amp; Stack</div>
+<div class="dmeta">8 min · Kelsey Pope (AFCA) / vIQtory</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 25-yd lane, 1 DB</h4><p>DB 7 yds off (half-speed shadow at first).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Attack the DB&#x27;s midline at FULL speed (kills cushion, keeps two-way go), stem into the leverage shoulder, win an edge, then STACK — cut onto the DB&#x27;s toes so he&#x27;s in trail — and sprint through a landmark before looking for the ball.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eat up space — no slow-play off the line</li><li>Get to half-a-man; never run around the DB wide</li><li>After the win, work back ON TOP of him — the stack makes the QB&#x27;s throw easy</li><li>Drive phase first; eyes come late</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stem/stack tag game: receiver wins by stacking within 10 yds, DB wins by staying square.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Live deep ball with over-shoulder pinkies-together catch; route conversion rule: DB stays square and shallow → snap it off into a comeback (the 5-second-clock bail-out).</div>
+<div class="pills"><span class="pill">Verticals</span><span class="pill">Releases vs off</span><span class="pill">Stacking</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Dog Fight / High-Point 1v1</div>
+<div class="dmeta">6 min · Emporia St. / Kelsey Pope</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 ball, matched pairs</h4><p>Two receivers 3 yds apart facing coach 10-12 yds away. Pair kids of similar height.</p></div>
+<div class="sec"><h4>How it runs</h4><p>On &#x27;Hit,&#x27; both release; coach throws a jump ball; both attack and high-point it. Winner boxes out with the Gator Roll spin-out after the catch.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Jump TO the ball — meet it at its highest point, never wait</li><li>Two hands, diamond over the face</li><li>Shield with the off arm; never give up your chest</li><li>Land, spin out, tuck — finish every rep</li><li>Hand-fight early, ball-fight late: hands stay active into the catch point</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One receiver + one non-jumping shadow; underhand lob to a spot.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Back-shoulder and fade balls in a 7-yd sideline box: outside release, stay inside the ball, catch over the outside shoulder. Add the RIP round — loser tries to rip the ball out for a 2-count after the catch.</div>
+<div class="pills"><span class="pill">Contested catch</span><span class="pill">High point</span><span class="pill">Body position</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Whip/Option Route Read</div>
+<div class="dmeta">7 min · NFL FLAG / Emporia St.</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 defender, QB</h4><p>Receiver at LOS; defender at 5 yds picks a side (leans inside or outside) as the receiver stems; QB at flag rhythm depth.</p></div>
+<div class="sec"><h4>How it runs</h4><p>5-yd stem at the DB&#x27;s midline, then read: DB inside → pivot/whip out; DB outside or soft → sit or snap in. Pivot = plant, drop hips, reverse flat along the LOS.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>One decision, made early, at 100% — never double-guess</li><li>Pivot low, chest over toes</li><li>Show your hands to the QB immediately out of the break</li><li>QB and WR read the SAME leverage cue — that&#x27;s the timing glue</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Coach calls &#x27;in!&#x27; or &#x27;out!&#x27; at the stem instead of a body-lean read.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Silent read vs live DB; add the Jerk route (slant-out-slant) as the counter once DBs jump the pivot.</div>
+<div class="pills"><span class="pill">Option routes</span><span class="pill">Leverage reads</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Zone Window Sit-Down (Find the Grass) <span class="fav">&#11088;</span></div>
+<div class="dmeta">8 min · NFL FLAG / Emporia St. — evolves Patrick&#x27;s Soft Spot drill</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 3-4 zone defenders (cones/parents), QB</h4><p>3-4 defenders in a 20x20 box, each owning a zone. Receiver runs a dig/curl/drag through them.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Cross the box, throttle down in the open window between defenders, snap around, show numbers and hands, catch, burst upfield.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Run in grass, SIT in grass — sprint through occupied zones, settle in empty ones</li><li>Open your hips to the QB, not the sideline</li><li>Slide with a scrambling QB — deep routes work back to him</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Zones marked with hula hoops or cone squares — literally sit in the box.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Defenders shift zones on cadence so the window moves; 5-second clock — receiver learns to uncover late for a QB in trouble.</div>
+<div class="pills"><span class="pill">Zone recognition</span><span class="pill">Uncovering</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Catch-Tuck-Juke Gauntlet (Flag YAC)</div>
+<div class="dmeta">7 min · Emporia St. / Jake Brown, flag-adapted</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cone box 10x10, 2 flag-pullers</h4><p>Receiver catches a hitch at 5 yds, then enters a 10x10 juke box with 2 staggered pullers.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Catch → tuck → SNAP the head upfield → beat puller #1 with a juke/dead-leg, puller #2 with burst or spin, score through the end cones.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Catch it, tuck it, put it away, SNAP YOUR HEAD — the head-snap is the drill</li><li>Make the move 2 yds BEFORE the defender — space is your armor</li><li>Accelerate OUT of every move</li><li>Hips away from the puller; arms high, never drifting down to the flags</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One puller; pre-called move (&#x27;juke left!&#x27;).</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Two live pullers + a chase defender from behind; run as a scored competition.</div>
+<div class="pills"><span class="pill">YAC</span><span class="pill">Evasion after catch</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Sideline Toe-Tap</div>
+<div class="dmeta">5 min · USA Flag / Emporia St.</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Sideline lane 2 yds wide</h4><p>Cones mark a sideline lane 2 yds wide, 10 yds long. Receiver runs an out or corner toward it; QB throws to the boundary.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Catch at the boundary keeping feet in bounds. Teach two-feet &#x27;shotgun feet&#x27; even in a one-foot league — it ages up.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Catch FIRST with hands away from the body; feet second</li><li>Shotgun feet: both toes tap fast</li><li>Eyes on the ball through the catch — FEEL the line, never look down</li><li>Drag the toe on hard-breaking outs</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stationary on the line, coach lobs; kid calls &#x27;tap-tap!&#x27; as feet land.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Full-speed 10-yd speed out with a trailing DB — the sideline is the second defender.</div>
+<div class="pills"><span class="pill">Boundary catches</span><span class="pill">Footwork</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Distraction / Traffic Catch + Rip-Away</div>
+<div class="dmeta">7 min · Emporia St. / Jake Brown Contested Shuffle</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 crossing lines or hand-shield</h4><p>Two lines cross in front of the catch window, or one teammate stands a yard in front waving hands (no contact — perfect for flag).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Receiver runs a drag/in through the crossing traffic; ball is thrown through the noise; catch, tuck, burst. Then the RIP round: defender shadows shoulder-to-shoulder, receiver frames and attacks the ball, then RIPS it away violently to simulate the strip battle.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Zoom your eyes to the point of the ball THROUGH the bodies</li><li>Hands late but ready; squeeze the fingers at the catch</li><li>Rip THROUGH the ball, elbow over the top — win it twice</li><li>Expect to make the GREAT catch, not the routine one</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Distractor holds a still hand-shield beside the window; slower ball.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Two crossing receivers, deepest gets the ball (mirrors your mesh concepts); add a defender high-pointing to knock it down — trains both sides.</div>
+<div class="pills"><span class="pill">Catching in traffic</span><span class="pill">Hand fighting</span><span class="pill">Ball security</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">3-Step-Rhythm Route Tree Circuit</div>
+<div class="dmeta">8-10 min · Chad Johnson / NFL FLAG — QB-station crossover</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · QB rotation, cones</h4><p>QB takes a 3-step rhythm drop; receivers rotate through a called mini-tree: hitch, slant, out, option, corner/post, go-with-stack.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Every route thrown ON TIME — ball out between 2.5-3.0s. Coach counts &#x27;1-2-3-BALL&#x27; out loud. One rep every ~30 seconds.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Route depth is a CONTRACT with the QB — no freelancing</li><li>Break steps ≤3 — count them</li><li>Eyes last out of the break; hands up immediately</li><li>Covered? Still finish — uncover back to the ball by 4.5s</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Tree = hitch, slant, out only; coach stands at the throw spot as a metronome.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Full 15-route flag tree with double moves (chair, stop-n-go, slant-go) — allowed only after the kid wins with the single move. Defender plays 7 yds off and jumps the first break.</div>
+<div class="pills"><span class="pill">Route timing</span><span class="pill">Full tree</span><span class="pill">QB chemistry</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#16a34a"></span>
+<div><div class="dname">Rapid Catch Drill <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Patrick&#x27;s library — proven</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 cones 15 yds apart</h4><p>2 cones east-west 15 yds apart; players start on the right cone; coach as QB.</p></div>
+<div class="sec"><h4>How it runs</h4><p>On &#x27;Hike!&#x27; run across, catch, tuck. Drop the ball at the far cone, cut back, catch #2 coming back. At the start cone, drop it, cut upfield, catch a deep lobbed ball in stride.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Tuck between every catch — no carrying it loose</li><li>Sharp cuts at the cones, not rounded loops</li><li>Track the deep ball over the correct shoulder</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Shorten to 10 yds; soft lobs.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a trailing DB on the final deep ball; time the full circuit.</div>
+<div class="pills"><span class="pill">Conditioning catches</span><span class="pill">Cuts</span><span class="pill">Deep tracking</span></div>
+</div></details><a class="top" href="#topbar">&#8679; back to top</a><h2 class="sect" id="rb" style="color:#ea580c">⚡ Offense — RB · 10 drills</h2>
+<div class="blurb">Posted rules: breadbasket every exchange · ONE move then north · arms high, never near the flags · the sideline is a defender · nobody leaves their feet.</div><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Breadbasket Mesh &amp; Fake Series <span class="fav">&#11088;</span></div>
+<div class="dmeta">8 min · NFL FLAG / MOJO — upgrades Patrick&#x27;s handoff series</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 LOS cones, QB pairs</h4><p>QB + RB pairs (add a center if available). RB aligned at real game depth/angle behind QB.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Rotate 3 reps each: 2-step handoff, 3-step/stretch handoff, 1-step fake, stretch fake. RB hits the mesh AT SPEED every rep and sprints 10 yds after — or carries out the fake 10 yds hard.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Breadbasket: arm closest to the QB is ALWAYS on top</li><li>QB places, RB clamps — no snatching, no swinging</li><li>Never slow into the mesh — take it without decelerating</li><li>THE FAKE IS A REAL CARRY WITHOUT A BALL — sell it, lean forward, sprint</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Walk → jog → run tempo ladder; freeze-check the breadbasket before adding speed.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Live edge rusher at the mesh; counter action (fake one way, hand the other); eyes UP through the mesh — call out the coach&#x27;s finger count downfield.</div>
+<div class="pills"><span class="pill">Handoffs</span><span class="pill">Mesh timing</span><span class="pill">Play fakes</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">High-Arm Carry &amp; Punch/Rip Trailer</div>
+<div class="dmeta">6 min · Trevor Strong / NFL FLAG</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 1 ball each, 10-yd lanes</h4><p>10-yd lane per player.</p></div>
+<div class="sec"><h4>How it runs</h4><p>(a) Stationary arm-switch reps; (b) hop forward switching carry arm each hop; (c) 10-yd carries switching the ball to the sideline arm at a mid-cone; (d) trailer round: a chaser attacks the ball AND swipes at flags from behind while the carrier keeps arms high and legal.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>4 points of contact: fingertips, forearm, bicep, chest</li><li>Ball HIGH and tight — high ball = arms above the hips = flag-guard insurance</li><li>Eyes up the whole time</li><li>On &#x27;SWITCH&#x27; the ball crosses the chest, never dangles low</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stationary switches, then walk-throughs.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Full-speed trailer with &#x27;switch&#x27; calls mid-run; flag pull ends the rep — protect flags with position, never with hands.</div>
+<div class="pills"><span class="pill">Ball security</span><span class="pill">Flag-guard prevention</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">One-Cut Lane (One Move, Then North)</div>
+<div class="dmeta">7 min · Football Advantage / Footwork King step-count</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 5 cones</h4><p>Start cone → stop cone at 5 yds → two exit cones 1 yd left/right → finish cone 5 yds beyond.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Sprint, ONE jump-cut/plant-cut off the stop cone to either exit, immediately re-accelerate through the finish. Alternate sides, then go reactive: coach points late — cut opposite his point.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Plant OUTSIDE your frame, shoulders level, hips drop</li><li>Cut angle as close to 90° as you can — decelerate off the outside edge of the feet</li><li>COUNT THE STEPS in the redirect — fewest steps wins</li><li>Celebrate the burst OUT of the cut, not the cut itself</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Pre-called direction, no ball, then add the ball.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Live shadow defender in a 2-yd lane behind the cone; add a second cut 5 yds later — two defenders = two single moves, never two moves on one defender.</div>
+<div class="pills"><span class="pill">Cut mechanics</span><span class="pill">Decisiveness</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Coach D&#x27;s Move-Menu Box <span class="fav">&#11088;</span></div>
+<div class="dmeta">8 min · Flag Football with Coach D (Patrick owns the pack)</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 4 cones (10x10), 1 defender</h4><p>10x10 box, defender in the middle; runners enter one end, must exit the far side.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Rounds by move family — Get Skinny / Dip / Burst / Spin / Cut — then a free-choice round. Defender live for flags.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>WHEN-TO-USE RULES: defender square → burst or cut; reaching/lunging → dip or get skinny; boxed in → spin; near boundary → get skinny</li><li>ONE move, then go — dancing lets the swarm arrive</li><li>Dip changes flag altitude, spin changes flag direction, skinny shrinks the target — all LEGAL protection</li><li>Spin is the legal stiff-arm: as they grab, the flag rotates away</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Defender at walking speed; moves pre-called.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Two staggered defenders (one move each); add a no-run-zone stripe where only skinny/burst are allowed — no dancing in the NRZ.</div>
+<div class="pills"><span class="pill">Jukes</span><span class="pill">Spins</span><span class="pill">Evasion decision rules</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Sideline 2.0 (Win the Sideline) <span class="fav">&#11088;</span></div>
+<div class="dmeta">7 min · Coach D — already a Patrick favorite</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 8 cones — two lanes + divider</h4><p>Two parallel sideline lanes with a center divider cone; RB and defender each start ~7 yds away, meeting at full speed.</p></div>
+<div class="sec"><h4>How it runs</h4><p>RB sprints to win the edge and score up the lane; defender guards and blocks the sideline, forcing a step-out or cut-in. Two lanes running simultaneously = constant reps.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>NEVER surrender out of bounds — cut in or sweep</li><li>Get skinny along the paint</li><li>Find the boundary with your eyes EARLY — before the defender arrives</li><li>Inside cut comes off the outside foot</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Wider lane; defender starts flat-footed.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Narrow to 3 yds; score it (TD 6 / forced OB 2 / pull 3); add a trailing second defender so the cut-in must include re-acceleration.</div>
+<div class="pills"><span class="pill">Boundary running</span><span class="pill">Staying in bounds</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Figure-8 Chase Tag</div>
+<div class="dmeta">6 min · Bobby Stroupe (APEC) / UA Flag</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones for two circles</h4><p>Two cone circles ~4 strides across set 2 yds apart forming a figure-8 track. Runner leads with ball and flags; chaser starts half a circle behind.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Both must stay on the track; any movement style. Rep ends on a flag pull or one full figure-8 escape.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Slow INTO the curve, explode OUT</li><li>Lean into the bend — curved speed is a skill</li><li>Snap direction at the crossover point</li><li>Break the chaser&#x27;s rhythm with gear changes, not just speed</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Bigger circles, 15-20 second bouts, tag instead of flag pull.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Shrink the circles; chaser starts closer; king-of-the-8 winner-stays-on bracket.</div>
+<div class="pills"><span class="pill">Evasion</span><span class="pill">Curved speed</span><span class="pill">Gear changes</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Open-Field 1v1 Flag Islands</div>
+<div class="dmeta">8 min · NFL FLAG / Flag Football Academy</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 10x15 lane</h4><p>Runner at one end with ball; defender 12-15 yds away; end line = score.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Live 1v1, rapid-fire — next pair goes the instant a flag is pulled or the runner scores. Everyone rotates both roles.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Attack the defender&#x27;s NEAR SHOULDER to force his hips open, THEN move</li><li>Make the move at 2-3 yds of separation — not at 6 (he recovers), not at arm&#x27;s reach (too late)</li><li>Burst behind every move</li><li>Defender: breakdown, track hips not eyes</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Defender shuffle-only; narrower lane makes decisions binary.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>2v1 pitch-decision round: two runners one ball vs one defender — he takes YOU, pitch; he sits on the pitch, keep and burst. The open-field pitch trainer.</div>
+<div class="pills"><span class="pill">Open-field evasion</span><span class="pill">1v1s</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Mini-End-Zone Gauntlet (Traffic Vision)</div>
+<div class="dmeta">7 min · UA Flag / Fanatics</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 6+ cones, 2-3 gate defenders</h4><p>6-cone rectangle creating 2 gates; a lateral-movement-only defender guards each gate; runner starts 10-15 yds back.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Navigate both gates for a score. Fanatics scoring: TD = 6, each flag pulled = 3 for defense.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eyes UP two defenders ahead — pick your gate before you reach it</li><li>Slow to the hole, FAST through it</li><li>Never stop the feet</li><li>Ball in the arm away from the nearest defender</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One gate, wider gates.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Three gates; defenders get a step of forward freedom; constraint rounds (spin-only, skinny-only).</div>
+<div class="pills"><span class="pill">Vision</span><span class="pill">Traffic running</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Pitch Relationship Ladder</div>
+<div class="dmeta">7 min · UA Flag / Fanatics</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Balls, open width of field</h4><p>Pairs moving laterally; trail player 3-5 yds deep AND 3-5 yds behind the lead (the pitch pocket).</p></div>
+<div class="sec"><h4>How it runs</h4><p>(a) Stationary rugby pitches — firm, flat, little hang time, aimed at the stomach; (b) jogging pitch chains across the field both directions; (c) full-speed sweep pitch off the QB; (d) trail-pitch escape: lead engages a defender, pitches back to the trailer who bursts upfield.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Trailer NEVER even with the ball — behind and deep keeps every pitch legal</li><li>Pitcher looks at the stomach of the target</li><li>Jog until the catch, THEN sprint</li><li>Pitch off the defender&#x27;s commitment, not on a schedule</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Stationary and walking pitches; oversized pitch pocket.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>3-man scramble game: one defender, ball must be pitched twice before scoring in a 15x20 box — mirrors unlimited behind-LOS laterals.</div>
+<div class="pills"><span class="pill">Pitches</span><span class="pill">Laterals</span><span class="pill">2v1 decisions</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#ea580c"></span>
+<div><div class="dname">Gear-Shift Runway</div>
+<div class="dmeta">7 min · Trevor Strong / Stroupe / USA Football Angle Race</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones at 0-10-15-25 yds</h4><p>25-yd runway: Zone 1 (0-10) = 3rd gear, Zone 2 (10-15) = 1st gear, Zone 3 (15-25) = 5th gear.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Carry a ball through the gears; flip the pattern; then reactive — a defender stands in Zone 2 and the runner arrives in 1st gear (balanced, feet alive) and leaves in 5th. Finish with the Angle Race: runner vs defender who has the angle — bend away from pursuit and finish up the sideline.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Speed changes beat direction changes when defenders have help</li><li>A flag puller times your hips — break his timing</li><li>Shorten the stride to decelerate; never stand up tall</li><li>The burst IS the move — jukes only work because of what comes after</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Coach calls the gears out loud (&#x27;green… yellow… GREEN!&#x27;).</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Silent read of a trailing chaser — runner chooses when to shift; escape 25 yds unflagged to win.</div>
+<div class="pills"><span class="pill">Change of pace</span><span class="pill">Pursuit angles</span></div>
+</div></details><a class="top" href="#topbar">&#8679; back to top</a><h2 class="sect" id="def" style="color:#dc2626">🛡️ Defense · 13 drills</h2>
+<div class="blurb">3-phase script every session: 4 min mechanics (pedal/flip) → 5 min read drill (zone/pattern) → 4 min compete (pull/blitz). Every rep ends with a ball or a flag.</div><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Pedal–Plant–Drive Break Ladder</div>
+<div class="dmeta">5 min (mechanics phase) · Rick Bouch / LaMarcus Hicks (Glazier)</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Ball, yard line</h4><p>Kids on a line, coach facing them 8 yds away with a ball.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Stance check → pedal on ball movement → coach points 45° → plant and drive 5 yds → next rep 90° → final rep coach throws on the break for a live finish.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>LOW MAN WINS — bend at ankle, knee, hip; chin over toes</li><li>Short choppy steps, weight over the toes; arms pump like sprinting</li><li>Break off the FAR-foot plant — no false hop</li><li>Nose over the plant knee coming downhill</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Pedal only 5 yds at 60% — controlled pedal, EXPLOSIVE break.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Break on the ball leaving the hand (not a point); chart interceptions.</div>
+<div class="pills"><span class="pill">Backpedal</span><span class="pill">Breaks</span><span class="pill">Drop steps</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">W Drill (Zone-Landmark Version) <span class="fav">&#11088;</span></div>
+<div class="dmeta">5 min · All Eyes DB Camp / Patrick&#x27;s library</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 4-5 cones in a W</h4><p>Cones 5 yds apart in a W. Frame it: top cone = your zone landmark, bottom = the throw.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Pedal to the top cone → plant → drive downhill 45° to the bottom cone → repeat across the W. Coach throws on the final leg.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Don&#x27;t round the top — sink hips, plant, GO</li><li>Eyes on the COACH the whole time, never the cones</li><li>Feet know the landmark; eyes live on the QB</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>3 cones, walk-through first, underhand toss finish.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Coach pump-fakes at a cone forcing a re-plant and re-drop.</div>
+<div class="pills"><span class="pill">Pedal-break chains</span><span class="pill">Zone landmarks</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Flip-and-Read (Hip Flip + Speed Turn)</div>
+<div class="dmeta">5 min · Clay Mack chains / Grip Boost</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Ball, 10-yd lane</h4><p>One line; coach faces them with a ball.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Pedal → coach points: OPEN (hip flip, 3 crossover steps) → points back: SPEED TURN (head snaps through the far shoulder, full turn away from the QB) → ball up: snap eyes back → ball in air: locate, high-point, finish.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Drop the hips INTO the flip — don&#x27;t stand up</li><li>T-step for short breaks; SPEED TURN when you&#x27;re beaten</li><li>Head snaps through the far shoulder — never round back through the QB</li><li>Eyes back to the ball fast</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Flip-only reps on command, no ball; one flip per rep, walk → jog → run.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Full chain: pedal → flip right → speed turn left → drive on the throw; add a WR on a lazy go route so the flip happens on a real body.</div>
+<div class="pills"><span class="pill">Hip flip</span><span class="pill">Speed turn</span><span class="pill">Recovery</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Wave Drill / Break-on-the-Point</div>
+<div class="dmeta">4 min · Youth Football Online / Chad Wilson eye doctrine</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Ball</h4><p>4-6 kids spread on a line in stance; coach 7 yds away with a ball.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Coach moves the ball: pedal / point left-right (shuffle or 45° drive) / ball overhead = turn and run / ball tucked = &#x27;RUN!&#x27; everyone sprints a flag angle. End each set with a live throw to one kid.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>YOU WILL RUN TO WHAT YOU LOOK AT — eyes never leave the ball</li><li>Stay in the low shuffle; never cross the feet on lateral waves</li><li>Eye-wander = redo the rep (not laps)</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Slower cadence, 2 commands per rep, exaggerated signals.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a pump-fake signal they must NOT bite on — break only when the ball actually leaves the hand.</div>
+<div class="pills"><span class="pill">Eye discipline</span><span class="pill">Reaction</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Hands-Back Mirror (Man Technique)</div>
+<div class="dmeta">5 min · Grip Boost / All Eyes DB Camp</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 cones (5-yd lane)</h4><p>Pairs in a 5-yd-wide lane; WR jukes side-to-side for 5 seconds; defender mirrors with HANDS BEHIND BACK, starting 1+ yd off (league rule).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Mirror phase → whistle → live: WR releases upfield in the lane, defender flips hips and runs the hip pocket. Rotate roles.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eyes locked on the BELT — in flag, the hips ARE the flags and neither can juke you</li><li>Low stance, feet outside the WR&#x27;s frame</li><li>No crossed feet</li><li>Hands behind the back forces the feet to do the work</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Slow-motion mirror; WR limited to 2 cuts.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add leverage: hold inside position while he weaves; then live 1-on-1 with a QB throw.</div>
+<div class="pills"><span class="pill">Man coverage</span><span class="pill">Mirroring</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Shell Game (Disguise Mechanics) <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min (read phase) · All Eyes DB Camp / FirstDown Changeup — extends Patrick&#x27;s 2-3-1 disguises</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 5-6 defenders, coach as QB</h4><p>Defenders in the 2-3-1 base vs air. Coach behind the offense hand-signals the REAL call; defenders show a different picture.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Menu: (a) show 2-high → one safety rotates down at the snap = 2-3-1; (b) show 1-high press-look → bail to 2-deep; (c) blitzer creeps at 5 yds → bails to the flat at the snap (fake blitz). Coach-QB calls out what he THINKS the coverage is post-snap — defense wins if he&#x27;s wrong.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Rotate AT the snap, not early</li><li>Move every play, even when staying in base</li><li>One-word rotation calls — loud</li><li>It only works if everyone knows the real call</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One rehearsed rotation only, walk-through tempo, rehearsed like a play.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Full menu + conflicting keys (corner shows press while his safety cheats over); then live 3v3 behind it.</div>
+<div class="pills"><span class="pill">Disguise</span><span class="pill">Rotations</span><span class="pill">Communication</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Defend-the-Seam (Safety Reads + High Point) <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Rick Bouch — evolves Patrick&#x27;s Monkey in the Middle</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 WRs, QB</h4><p>Safety at his real landmark (12-15 yds, middle). Two WRs on the hashes, QB at the LOS.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Both WRs run seams; QB picks one. Safety reads the QB&#x27;s shoulders and front hip (not his eyes), breaks on the release, high-points for the INT or a two-hand knockdown.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Stay deeper than the deepest — NOBODY behind you, ever</li><li>Read the shoulders and front hip — they can&#x27;t lie at release</li><li>Attack the ball at its HIGHEST point; two hands</li><li>Call BALL-BALL-BALL in the air</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One WR, pre-told side, catchable lob; a knockdown counts as a win.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a pump fake to the opposite hash — &#x27;don&#x27;t go till you know,&#x27; then still overlap the throw. Season INT leaderboard.</div>
+<div class="pills"><span class="pill">Safety play</span><span class="pill">Break on the ball</span><span class="pill">High point</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Triangle Pattern-Read (2-WR Combos) <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Pattern-read doctrine — evolves Patrick&#x27;s 1v2 Stacked-WR drill</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 2 WRs, corner + underneath defender, QB</h4><p>Corner + underneath defender vs two WRs. Script 3 combos: hitch+go (the killer), curl+flat, smash.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Defenders play their 2-3-1 zone rules live. Corner reads #1 then #2; on hitch+go the corner must NOT jump the hitch until the deep threat is resolved — the underneath man takes the hitch and CALLS it. QB throws where the read says; defense wins on a knockdown, INT, or flag within 2 steps of the catch.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>SOMEONE GOES SHORT? EXPECT SOMEONE DEEP BEHIND IT</li><li>The &#x27;UNDER!&#x27; call releases the corner&#x27;s conscience</li><li>Depth before breaks — never drive forward while a vertical is unresolved</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Isolated-key week: remove #2 entirely; corner reps &#x27;sit only when the safety calls SIT.&#x27; One combo per session.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Unscripted — WRs secretly pick the combo; disguise rotation in front of it; defenders must NAME the combo after the play.</div>
+<div class="pills"><span class="pill">Pattern reading</span><span class="pill">Zone discipline</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Carry-and-Deliver (Zone Pass-Off + Swarm Trigger) <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Coach Z zone rules — evolves Patrick&#x27;s Zone Pass-Offs</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 3 underneath defenders, 2 crossing WRs, QB</h4><p>Three underneath defenders spaced across; two WRs run crossers from opposite sides (shallow drag + deeper cross).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Pass receivers zone-to-zone: &#x27;CROSSER!&#x27; as one leaves your zone; the next defender answers &#x27;GOT HIM!&#x27; Nobody chases across the field. QB throws late to whoever leaks; break, knock down, or pull the flag instantly. CRITICAL: 2 of every 6 reps end with the QB scrambling across the LOS → ALL ZONES DISSOLVE → SWARM.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eyes bounce: receiver → QB → receiver</li><li>Talk or die: CROSSER! / GOT HIM!</li><li>Empty zone? GO HELP</li><li>QB CROSSES THE LINE = everyone&#x27;s man — swarm trigger is automatic</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>One crosser, two defenders, scripted words, walk-through.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Three WRs with a vertical over the top; silent pointing rep, then loud rep — proves why the talk matters.</div>
+<div class="pills"><span class="pill">Zone handoffs</span><span class="pill">Communication</span><span class="pill">Swarm trigger</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Flag-Pull Angle Progression (Tunnel → Zig-Zag → Open Field) <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min (compete phase) · NFL FLAG — upgrades Patrick&#x27;s zig-zag pull drill</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones for 3 stages</h4><p>Stage 1 Tunnel: two lines of defenders 5 ft apart. Stage 2 Zig-Zag: defenders staggered every 5 yds. Stage 3 Cone: 10-yd square, offense and defense sprint from diagonal corners and meet in the middle live.</p></div>
+<div class="sec"><h4>How it runs</h4><p>~3 minutes per stage, rotating roles continuously.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Eyes on the FLAGS — jukes live in the shoulders, truth lives in the hips</li><li>Grip at the base of the flag, rip straight down, RUN THROUGH the pull</li><li>Breakdown: butt down, knees bent, short choppy shuffle — never plant flat-footed</li><li>DON&#x27;T LUNGE — belly button never lies</li><li>Show the flag, drop it at the spot</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Smaller square; tunnel runner at 3/4 speed.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Live jukes in the cone stage + angle discipline: meet him where he&#x27;s GOING; add a mirror-then-release phase before the pull.</div>
+<div class="pills"><span class="pill">Flag pulling</span><span class="pill">Pursuit angles</span><span class="pill">Breakdown</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">2v1 Sideline Squeeze &amp; Swarm <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Pursuit doctrine — evolves Patrick&#x27;s 2v1 lane pulls</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 15-yd lane along a sideline</h4><p>Runner at a cone; two defenders — one shallow/inside (FORCE), one deeper/inside (ANGLE).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Runner attacks the open field. Force defender sprints to cut off the inside cut and herds him to the sideline — he does NOT pull. Angle defender runs the intercept line to where the runner is GOING and makes the pull. Swap roles every rep.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>First man LEVERAGES, second man PULLS</li><li>Call it: &#x27;FORCE!&#x27; / &#x27;PULL!&#x27;</li><li>The sideline is your 7th defender</li><li>Never both attack the same shoulder</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Narrower 10-yd lane, one cut max, walk the roles first.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>3v2 with a decoy runner; stopwatch competition between defender pairs.</div>
+<div class="pills"><span class="pill">Team pursuit</span><span class="pill">Force/pull roles</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Box-and-One Blitz Clock</div>
+<div class="dmeta">5 min · USA Football</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cone box 10-15 yds, QB</h4><p>QB at the front of the box; rusher at the league&#x27;s legal 5-yd mark. Coach counts down from 7 seconds.</p></div>
+<div class="sec"><h4>How it runs</h4><p>On ball movement the rusher attacks; QB evades inside the box keeping eyes downfield. Win = flag pull or clock expires. Mix REAL blitzes with SHOWN-then-bailed blitzes.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>First step at FULL speed on ball movement — not sound</li><li>Rush the throwing-shoulder path — even a miss ruins the throw</li><li>BUZZ THE FEET inside striking distance — a sprinting whiff is a touchdown</li><li>You get 2 blitzes a game: every one has to land like a play-call</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Bigger box, 7-second clock, QB at 3/4 speed.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>3-4 second clock; script the blitz off the identical disguise look from the Shell Game so game blitzes come out of the same picture.</div>
+<div class="pills"><span class="pill">Blitz timing</span><span class="pill">Rush craft</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#dc2626"></span>
+<div><div class="dname">Gap Attack Flag Pulling <span class="fav">&#11088;</span></div>
+<div class="dmeta">6 min · Patrick&#x27;s library — proven</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 5 cones on a line (4 gaps)</h4><p>5 cones ~2 yds apart = LOS with 4 gaps. RB line (with ball) 5 yds back; LB line 5 yds back on the other side.</p></div>
+<div class="sec"><h4>How it runs</h4><p>First whistle: RB shuffles laterally along the LOS; LB mirrors. Second whistle: RB picks a gap and attacks; LB meets him IN the gap in good position and pulls flags.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Mirror with the shuffle — never cross the feet</li><li>Meet him IN the gap, don&#x27;t wait behind it</li><li>Breakdown before contact range — DON&#x27;T LUNGE</li><li>Belly button never lies</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Slower shuffle phase; call the gap for the RB.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Two RBs / two LBs with a fake — LB must find the ball first (play-action discipline).</div>
+<div class="pills"><span class="pill">Run fits</span><span class="pill">Mirror + pull</span></div>
+</div></details><a class="top" href="#topbar">&#8679; back to top</a><h2 class="sect" id="agi" style="color:#9333ea">🚀 Speed &amp; Agility · 12 drills</h2>
+<div class="blurb">Periodized 17-practice arc: Baseline (P1-2) → Acceleration (P3-6) → Decel &amp; Cuts (P7-10) → Reactive &amp; Evasion (P11-14) → Peak &amp; Combine (P15-17). Sprint work stays under 80 max-effort yards; rest 5-6x work; never train slow.</div><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Baseline Combine (Tests 1-3)</div>
+<div class="dmeta">Full station P1-P2, retest P9 &amp; P16 · Eval (P1-P2) · Feed the Cats / NSCA</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones, stopwatch, phone (slo-mo)</h4><p>Three tests: 10-yd sprint (stopwatch, first-movement start), 10-yd fly (15-yd build for 10U / 20-yd for 12U, phone slo-mo timing), pro agility 5-10-5.</p></div>
+<div class="sec"><h4>How it runs</h4><p>2 timed reps per test per kid, best counts. Publish the leaderboard — PRs and Most Improved, not just fastest. Retest at P9 (mid) and P16 (Combine Day).</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Silent baseline — no coaching on test day</li><li>Same timer, same method every checkpoint</li><li>12U beating the age-13 50th percentile (2.27s / 5.18s) = objective &#x27;plays up&#x27; proof</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>15-yd fly build-in; demo + one practice walk-through of the 5-10-5.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>20-yd build-in; add seated/backward starts as fun tiebreakers.</div>
+<div class="pills"><span class="pill">Testing</span><span class="pill">Benchmarks</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Wall Drill + Falling Starts</div>
+<div class="dmeta">10 min · Acceleration (P3-P6) · Lee Taft / acceleration mechanics</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Fence/wall or partner</h4><p>Hands on a fence at 45° body lean for wall marches; open 10-yd lane for falling starts.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Wall marches: single exchange on command, then 3-count rapid. Falling starts: stand tall, lean like a felled tree, sprint out 10 yds when balance breaks. Waves of 2.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Knee to the sky, foot hammers straight down</li><li>Arrow from a bow — fall farther than feels safe</li><li>Push the ground BEHIND you</li><li>One cue at a time</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Partner-supported lean.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Scissor (split-stance) falling starts.</div>
+<div class="pills"><span class="pill">Acceleration posture</span><span class="pill">First step</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Ball-Drop &amp; Push-Up Start Races</div>
+<div class="dmeta">10 min · Acceleration (P3-P6) · Lee Taft</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Tennis balls</h4><p>Partner 5 yds away holds a tennis ball at shoulder height.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Ball drops — sprinter must catch it before the second bounce (auto-teaches the plyo step, zero cues needed). Then push-up starts: chest on the ground, explode 10 yds on the drop. Race format, waves of 2.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Let the drill do the coaching — the plyo step is natural, refine it, don&#x27;t remove it</li><li>Full effort or it doesn&#x27;t count</li><li>45+ seconds rest between reps (rotation handles it)</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Drop from 4 yds, then 3.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Widen to 6-7 yds; mix visual (drop) and audio (stomp) starts.</div>
+<div class="pills"><span class="pill">Reaction</span><span class="pill">First-step quickness</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Chase Starts (Flags On)</div>
+<div class="dmeta">10 min · Acceleration (P3-P6) · Feed the Cats intensity / Taft games</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Flags, cones 15 yds</h4><p>Pairs: chaser starts 2 yds behind; both sprint 15 yds; chaser tries to pull the leader&#x27;s flag.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Rotate handicaps until every matchup is a coin flip. 4 reps each, full rest between.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Every rep is a race — never train slow</li><li>Adjust the stagger, not the effort</li><li>Arms punch the sky</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>1.5-yd stagger.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Vary start positions: seated, facing backward (hip-turn preview).</div>
+<div class="pills"><span class="pill">Max-effort sprinting</span><span class="pill">Compete</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Sprint-to-Stick (Brake Box)</div>
+<div class="dmeta">10 min · Decel &amp; COD (P7-P10) · Parisi / Boyle — decel first</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones for a 2-yd brake box at 10 yds</h4><p>Sprint lane with a marked brake box.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Sprint 10 yds, stick a clean 2-count stop inside the box. Progress jog → 3/4 → full speed within the session. Waves of 2 racing — first to STOP CLEAN wins. Add lateral shuffle-and-stick.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>STOMP THE BRAKES — sink the hips</li><li>Chest over knees, nose over toes</li><li>Shorten the stride to slow down — never stand up tall</li><li>The stop is the skill; reward it, not just the speed</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>3-yd brake box.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>1-yd box + stop on an unpredictable hand-clap.</div>
+<div class="pills"><span class="pill">Deceleration</span><span class="pill">Stopping mechanics</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Speed Cut vs Sharp Cut + Zig-Zag Flag Lane</div>
+<div class="dmeta">10 min · Decel &amp; COD (P7-P10) · Cut mechanics / NFL FLAG</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 5-6 cones</h4><p>10-yd sprint to a cut cone; then a 5-cone zig-zag lane (5 yds apart, 4 yds for 10U) with a coach at the end taking one flag swipe.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Teach BOTH cuts: speed cut (outside-foot bend, minimal decel, shallow angles) and sharp plant cut (hard outside-foot plant, hips drop, 90°+). 3 reps each type each side, then 2 zig-zag runs with ball in hand.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Plant OUTSIDE the cone; shoulders stay level</li><li>Hips DROP into the sharp cut — don&#x27;t lean, sink</li><li>Speed cut = bend; sharp cut = plant; know which one the moment needs</li><li>Eyes up through every cut</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Cones 4 yds apart; walk-through first.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Coach calls &#x27;SPEED!&#x27; or &#x27;SHARP!&#x27; mid-run — randomize the cut type.</div>
+<div class="pills"><span class="pill">Cutting mechanics</span><span class="pill">COD</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Hip Turn + W-Drill + Ball-Drop Catch</div>
+<div class="dmeta">10 min · Decel &amp; COD (P7-P10) · Lee Taft / DB crossover</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones, ball</h4><p>Ready stance facing coach; then a 4-cone W (4-yd legs for 10U, 5 for 12U).</p></div>
+<div class="sec"><h4>How it runs</h4><p>Hip-turn reps: coach points left/right — snap the hips and burst 5 yds on a 45° back angle. Then the W-drill: backpedal, plant, drive forward 45°, repeat. Finish: kid faces away, coach slaps the ball, kid hip-turns on sound, locates, and catches a lob.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>THROW your hips — don&#x27;t step around yourself</li><li>Nose over toes in the pedal; roll downhill on the break</li><li>Backpedal = drop steps, weight over toes</li><li>Coordinate with the defense station — same vocabulary</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Shorter legs, point cue given early.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add a crossover-run (turn-and-run with eyes back inside) after the hip turn.</div>
+<div class="pills"><span class="pill">Hip turn</span><span class="pill">Backpedal transitions</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Mirror Shuffle + Breakout</div>
+<div class="dmeta">10 min · Reactive (P11-P14) · Reactive agility evidence base</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cone lanes, flags</h4><p>Pairs across a 1-yd gap between two 5-yd cone lines.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Leader shuffles/stutters/reverses for 5 seconds; mirror stays hip-to-hip. On the whistle the leader breaks upfield through a gate; the mirror must pull his flag within 5 yds. Score it.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Watch the BELT BUCKLE, not the feet</li><li>Stay in the athletic shuffle — never cross the feet</li><li>React, don&#x27;t guess</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>4-second bouts.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Widen the lane to 7 yds — more space is a harder mirror.</div>
+<div class="pills"><span class="pill">Reactive agility</span><span class="pill">Mirroring</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Cut-on-Cue + 1v1 Gate Chase</div>
+<div class="dmeta">10 min · Reactive (P11-P14) · Reactive COD research</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Cones for gates</h4><p>Sprinter attacks the coach 10 yds away; two gates 5 yds apart on a line 10 yds from a start cone for the chase game.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Cut-on-cue: at 5 yds the coach points late — sprinter speed-cuts opposite and bursts past. Progress from a point to a SHOULDER-LEAN fake (read the body, not the hand). Gate chase: runner picks a gate at the last second; defender starting 2 yds off mirrors and pulls at the gate.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Read the body — shoulders lie, hips don&#x27;t</li><li>Cut opposite and GO — no double-guess</li><li>Defender: track the belt through the fake</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Cue given earlier (7 yds out).</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Cue at 3-4 yds plus a second fake.</div>
+<div class="pills"><span class="pill">Perception-action</span><span class="pill">Juke reading</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">1v1 Open-Field Flag Duel</div>
+<div class="dmeta">10-12 min · Reactive (P11-P14) · THE signature flag agility drill</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · Channel 10-15 yds wide x 15 long</h4><p>Runner with ball at one end; defender starts 7 yds off; crossing the far line with flags intact = win.</p></div>
+<div class="sec"><h4>How it runs</h4><p>3 offense reps + 3 defense reps per kid. Keep public score (wins, not times). Narrow the channel for great runners, widen for great defenders — every matchup should be a coin flip.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Trains juke, decel, angles, and pulling in ONE rep</li><li>Runner: one move, then burst</li><li>Defender: breakdown at 3 yds, eyes on the belt</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>10-yd-wide channel.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>15-yd channel; king-of-the-hill bracket.</div>
+<div class="pills"><span class="pill">Evasion</span><span class="pill">Flag pulling</span><span class="pill">Compete</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Chaos Round: Freeze-Tag Flag + 2v1 Escape + Color Sprint</div>
+<div class="dmeta">10-12 min · Reactive (P11-P14) · Stroupe games / small-sided evidence</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · 15x15 box, colored cones</h4><p>Everyone flagged in a 15x15 box; separate 12-yd channel for 2v1; 3 colored cones in an arc.</p></div>
+<div class="sec"><h4>How it runs</h4><p>(a) Freeze-tag flag: lose both flags = frozen until a teammate re-belts you — 2 x 60s rounds. (b) 2v1 escape: beat two staggered defenders in sequence. (c) 3-cone reaction: coach calls a color mid-approach; sprint-touch-return.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Max change-of-direction density, zero cones to memorize</li><li>Sequential moves need re-acceleration between them</li><li>Listen-then-move: the call comes mid-stride</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>2v1 defenders locked in 3-yd zones.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Defenders free; add a second color call.</div>
+<div class="pills"><span class="pill">Game-speed agility</span><span class="pill">Conditioning-in-disguise</span></div>
+</div></details><details class="drill">
+<summary class="dhead"><span class="dot" style="background:#9333ea"></span>
+<div><div class="dname">Combine Day (Final Retest + Champion&#x27;s Choice)</div>
+<div class="dmeta">Full station P15-P17 · Peak (P15-P17) · Feed the Cats Record-Rank-Publish</div></div>
+<span class="chev">&#9654;</span></summary>
+<div class="dbody">
+<div class="sec"><h4>Setup · All test setups, printed PR sheets</h4><p>P15: best-of compete day (≤50 yds max-effort work, long rests). P16: full 3-test Combine with a printed PR sheet per kid. P17: kids vote — 1v1 duel bracket or freeze-tag championship.</p></div>
+<div class="sec"><h4>How it runs</h4><p>Publish season deltas for every kid, Most Improved award, top-3 boards per test. Enter the playoffs fast, fresh, and confident.</p></div>
+<div class="sec cues"><h4>Coaching cues</h4><ul><li>Late season = sharpen, don&#x27;t build</li><li>Speed is displayed by FRESH athletes — protect Sundays</li><li>Every kid can win a board: fastest, most improved, best defender</li></ul></div>
+<div class="agebox u10"><h4>10U version</h4>Same format, 80% distances.</div>
+<div class="agebox u12"><h4>12U / age-up version</h4>Add the age-13 percentile comparison — the objective bracket-up receipt.</div>
+<div class="pills"><span class="pill">Testing</span><span class="pill">Peaking</span></div>
+</div></details><a class="top" href="#topbar">&#8679; back to top</a></main>
+<script>
+/* Progressive enhancement only — every feature above works without this script. */
+var inp=document.getElementById('search');
+if(inp){inp.addEventListener('input',function(){
+var q=inp.value.toLowerCase();
+document.querySelectorAll('details.drill').forEach(function(d){
+d.style.display=(!q||d.textContent.toLowerCase().indexOf(q)>-1)?'':'none';});
+document.querySelectorAll('h2.sect,.blurb').forEach(function(el){el.style.display=q?'none':'';});
+});}
+</script>
+</body></html>
