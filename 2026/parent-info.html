@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Combine Night · Thu Aug 20 · Parent Info</title>
+<style>
+:root{
+  --bg:#0f172a; --card:#1e293b; --card2:#273449; --text:#f1f5f9; --muted:#94a3b8;
+  --line:#334155; --accent:#38bdf8; --gold:#fbbf24;
+  --u8:#4ade80; --u10:#38bdf8; --u12:#fb923c;
+  --spring:cubic-bezier(.32,.72,0,1);
+}
+html[data-sun="1"]{
+  --bg:#ffffff; --card:#ffffff; --card2:#eef2f7; --text:#0b1220; --muted:#475569;
+  --line:#94a3b8; --accent:#0369a1; --gold:#92600a;
+  --u8:#15803d; --u10:#0369a1; --u12:#c2410c;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  padding:0 0 1.5rem; -webkit-text-size-adjust:100%;
+}
+header{padding:.9rem .9rem .75rem;border-bottom:1px solid var(--line);background:var(--bg)}
+h1{font-size:1.35rem;margin:0;letter-spacing:-.02em;line-height:1.1}
+.sub{font-size:.95rem;color:var(--text);margin-top:.3rem;line-height:1.45;font-weight:650}
+.where{font-size:.95rem;color:var(--muted);margin-top:.15rem;line-height:1.45}
+.agerow{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
+.agechip{font-size:.8rem;line-height:1.3;border-radius:.5rem;padding:.3rem .55rem;border:1px solid var(--line);background:var(--card2);font-weight:800;letter-spacing:.04em}
+.agechip.a8{color:var(--u8)} .agechip.a10{color:var(--u10)} .agechip.a12{color:var(--u12)}
+.agechip.all{color:var(--muted);font-weight:600;letter-spacing:0}
+
+.focus{margin:.75rem .9rem 0;background:var(--card2);border:1px solid var(--accent);border-radius:.85rem;padding:.7rem .8rem;font-size:.98rem;line-height:1.55}
+.focus b{color:var(--gold)}
+
+main{padding:.5rem .9rem 0}
+.sect{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.1rem 0 .45rem}
+
+.block{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:.75rem .85rem;margin-bottom:.6rem}
+.block p{font-size:.98rem;line-height:1.55;margin:0}
+.block p + p{margin-top:.45rem}
+.block ul{margin:0;padding-left:1.15rem}
+.block ul + p{margin-top:.5rem}
+.block li{font-size:.98rem;line-height:1.5;margin-bottom:.28rem}
+.block li:last-child{margin-bottom:0}
+
+.warn{background:var(--card2);border:1px solid var(--gold);border-radius:.65rem;padding:.7rem .8rem;margin-bottom:.6rem;font-size:.98rem;line-height:1.55}
+.warn b{color:var(--gold)}
+
+.kidline{background:var(--card2);border:1px solid var(--line);border-radius:.9rem;padding:.75rem .85rem;margin-bottom:.6rem}
+.kidline h4{margin:0 0 .25rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.kidline p{font-size:1rem;line-height:1.55;margin:0;font-style:italic}
+
+.sign{font-size:.98rem;color:var(--muted);margin-top:.9rem;line-height:1.5}
+.sign b{color:var(--text)}
+
+@media (prefers-reduced-motion:reduce){ *{transition-duration:.01ms!important} }
+@media print{
+  @page{margin:.45in}
+  html[data-sun]{--bg:#fff;--card:#fff;--card2:#f1f5f9;--text:#000;--muted:#333;--line:#888;--accent:#000;--gold:#000;--u8:#000;--u10:#000;--u12:#000}
+  :root{--bg:#fff;--card:#fff;--card2:#f4f6f9;--text:#000;--muted:#333;--line:#999;--accent:#000;--gold:#000;--u8:#000;--u10:#000;--u12:#000}
+  body{background:#fff;color:#000;font-size:10.5pt;padding:0}
+  header{padding:0 0 .35rem}
+  main{padding:.2rem 0 0}
+  h1{font-size:15pt}
+  .sub,.where,.focus,.block p,.block li,.warn,.kidline p,.sign{font-size:10.5pt}
+  .block,.warn,.kidline,.focus{border:1px solid #999;break-inside:avoid;page-break-inside:avoid;margin-left:0;margin-right:0}
+  .sect{margin:.5rem 0 .3rem}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Combine Night</h1>
+  <div class="sub">Thursday, Aug 20 · 6:00–8:00 PM</div>
+  <div class="where">Field: ________________________<br>Please arrive by 5:50 so we can get everyone checked in.</div>
+  <div class="agerow">
+    <span class="agechip a8">8U</span>
+    <span class="agechip a10">10U</span>
+    <span class="agechip a12">12U</span>
+    <span class="agechip all">All three ages, same field, same time</span>
+  </div>
+</header>
+
+<div class="focus"><b>What tonight is:</b> we measure where every kid is starting. Speed, jumping, catching, throwing, and one-on-ones. We write the numbers down and run the same tests again in October so your kid can see exactly how much they improved. This is not a tryout. Nobody gets cut. Positions get sorted out over the season, not tonight.</div>
+
+<main>
+
+<div class="sect">Bring</div>
+<div class="block">
+  <ul>
+    <li><b>Water.</b> More than you think. It's two hours of running.</li>
+    <li><b>Cleats or running shoes.</b></li>
+    <li><b>Flag belt</b>, if you already have one.</li>
+    <li><b>Mouthguard</b>, if your league requires one.</li>
+  </ul>
+  <p>That's the whole list. Leave everything else in the car.</p>
+</div>
+
+<div class="sect">No names on any of it</div>
+<div class="warn"><b>Nobody's time gets posted with their name on it.</b> Every kid wears a numbered pinnie, and the number is what goes on the card. The times belong to your kid and the coaches. That's all.</div>
+
+<div class="sect">What your kid will actually do</div>
+<div class="block">
+  <ul>
+    <li>Run a short sprint</li>
+    <li>Jump as far as they can from a standing start</li>
+    <li>Catch some passes</li>
+    <li>Throw some passes</li>
+    <li>Play one-on-one keep-away with flags</li>
+    <li>Finish with a team relay race</li>
+  </ul>
+</div>
+
+<div class="kidline">
+  <h4>Read this part out loud to your player</h4>
+  <p>"You're not trying to beat anybody tonight. Just go hard on every turn. We do all of it again in October, and that's when you get to see how much better you got."</p>
+</div>
+
+<div class="sect">One ask</div>
+<div class="block">
+  <p>I need two parent volunteers at every practice. Nothing technical — you'd hold a stopwatch or a clipboard.</p>
+  <p>Grab me Thursday night and give me your name. Two names is all I need.</p>
+  <div class="sign">See you at the field. <b>— Coach Patrick</b></div>
+</div>
+
+</main>
+</body>
+</html>

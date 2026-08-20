@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Field Map · Combine Day Setup</title>
+<style>
+:root{
+  --bg:#0f172a; --card:#1e293b; --card2:#273449; --text:#f1f5f9; --muted:#94a3b8;
+  --line:#334155; --accent:#38bdf8; --gold:#fbbf24;
+  --u8:#4ade80; --u10:#38bdf8; --u12:#fb923c;
+  --spring:cubic-bezier(.32,.72,0,1);
+}
+html[data-sun="1"]{
+  --bg:#ffffff; --card:#ffffff; --card2:#eef2f7; --text:#0b1220; --muted:#475569;
+  --line:#94a3b8; --accent:#0369a1; --gold:#92600a;
+  --u8:#15803d; --u10:#0369a1; --u12:#c2410c;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  padding:0 0 3rem; -webkit-text-size-adjust:100%;
+}
+header{padding:.9rem .9rem .7rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:20}
+h1{font-size:1.25rem;margin:0;letter-spacing:-.02em;line-height:1.1}
+.sub{font-size:.75rem;color:var(--muted);margin-top:.25rem;line-height:1.4}
+.nav{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.navbtn{
+  padding:.45rem .8rem;border-radius:999px;font-size:.75rem;font-weight:700;
+  border:1px solid var(--line);background:var(--card2);color:var(--text);
+  text-decoration:none;cursor:pointer;transition:transform .1s ease-out,background .1s ease-out;
+}
+.navbtn:active{transform:scale(.96);background:var(--line)}
+
+.focus{margin:.7rem .9rem 0;background:var(--card2);border:1px solid var(--accent);border-radius:.85rem;padding:.7rem .8rem;font-size:.85rem;line-height:1.55}
+.focus b{color:var(--gold)}
+
+main{padding:.8rem .9rem}
+.sect{font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .55rem}
+
+.block{background:var(--card);border:1px solid var(--line);border-radius:.9rem;margin-bottom:.7rem;overflow:hidden;padding:.8rem .85rem}
+.block h3{margin:0 0 .5rem;font-size:.82rem;color:var(--gold);letter-spacing:-.005em}
+
+.item{margin-top:.7rem}
+.item h4{margin:0 0 .2rem;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.item p,.item li{font-size:.86rem;line-height:1.55;margin:0}
+.item ul{margin:0;padding-left:1.1rem}
+.item li{margin-bottom:.2rem}
+.item ol{margin:0;padding-left:1.25rem}
+.item ol li{margin-bottom:.4rem}
+
+.cues{background:var(--card2);border-radius:.65rem;padding:.6rem .75rem;margin-top:.7rem}
+.cues h4{color:var(--gold);margin:0 0 .25rem;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.cues p,.cues li{font-size:.83rem;line-height:1.5}
+.cues ul{margin:0;padding-left:1.1rem}
+
+/* table pattern, matches practice-plan scale tables */
+.scale{width:100%;border-collapse:collapse;margin-top:.55rem;font-size:.78rem}
+.scale th,.scale td{border:1px solid var(--line);padding:.35rem .45rem;text-align:left;line-height:1.4}
+.scale thead th{background:var(--card2);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+.scale th.u8{color:var(--u8)} .scale th.u10{color:var(--u10)} .scale th.u12{color:var(--u12)}
+.scale td:first-child{font-weight:700}
+.scale tbody tr:nth-child(even){background:rgba(148,163,184,.07)}
+
+.agerow{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+.agechip{font-size:.72rem;line-height:1.4;border-radius:.5rem;padding:.35rem .5rem;flex:1 1 8rem;border:1px solid var(--line);background:var(--card2)}
+.agechip b{display:block;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.1rem}
+.agechip.a8 b{color:var(--u8)} .agechip.a10 b{color:var(--u10)} .agechip.a12 b{color:var(--u12)}
+
+.warn{background:var(--card2);border:1px solid var(--gold);border-radius:.65rem;padding:.6rem .75rem;margin-top:.7rem;font-size:.82rem;line-height:1.5}
+.warn b{color:var(--gold)}
+
+.figwrap{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:.7rem .6rem;margin-bottom:.6rem}
+.figwrap svg{width:100%;height:auto;display:block}
+.figcap{font-size:.72rem;color:var(--muted);line-height:1.5;padding:.5rem .3rem 0}
+.figcap b{color:var(--text)}
+
+.dlink{color:var(--accent);text-decoration:underline dotted;text-underline-offset:.2em}
+footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;text-align:center}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+}
+@media print{
+  html[data-sun]{--bg:#fff;--card:#fff;--card2:#f1f5f9;--text:#000;--muted:#333;--line:#888;--accent:#000;--gold:#000;--u8:#000;--u10:#000;--u12:#000}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  header{position:static}
+  .nav,footer{display:none}
+  .block,.figwrap{border:1px solid #999;break-inside:avoid;page-break-inside:avoid}
+  .figwrap svg{max-width:100%}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Field Map — Combine Setup</h1>
+  <div class="sub">Thursday, Aug 20 · 5:15 PM · Patrick + first coach to arrive · spray paint, measuring wheel, unlimited cones</div>
+  <div class="nav">
+    <a class="navbtn" href="index.html">Drill Hub</a>
+    <a class="navbtn" href="tracker.html">Tracker</a>
+    <button class="navbtn" id="sun" type="button">Sun Mode</button>
+  </div>
+</header>
+
+<div class="focus"><b>Hand this to the 5:15 volunteer.</b> Paint first — those three lines never move all season. Then set cones station by station, working around the outside. The middle stays empty on purpose: that's the bracket field at 7:18, and if the four stations go up in the right spots, nobody touches a cone to run it.</div>
+
+<main>
+
+<div class="sect">The Field — Diagram</div>
+
+<div class="figwrap">
+<svg viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Field setup diagram for the combine, laid out as a 3 by 3 grid: agility and hands stations on top, an open bracket field in the center, speed and arm-mesh stations on the bottom, check-in and a map key in the remaining cells">
+<style>
+  text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+  .field{fill:var(--card2);stroke:var(--line);stroke-width:2}
+  .cellOutline{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:4 4;opacity:.4}
+  .lineMain{stroke:var(--text);stroke-width:2.5;fill:none;stroke-linecap:round}
+  .lineThin{stroke:var(--muted);stroke-width:1.3;fill:none}
+  .lineDash{stroke:var(--muted);stroke-width:1.3;fill:none;stroke-dasharray:4 3}
+  .tickMain{stroke:var(--text);stroke-width:1.4}
+  .tickMinor{stroke:var(--muted);stroke-width:.8}
+  .cone{fill:var(--gold);stroke:var(--text);stroke-width:.8}
+  .cone8{fill:var(--u8);stroke:var(--text);stroke-width:.8}
+  .cone10{fill:var(--u10);stroke:var(--text);stroke-width:.8}
+  .cone12{fill:var(--u12);stroke:var(--text);stroke-width:.8}
+  .zone8{stroke:var(--u8);fill:none;stroke-width:1.6}
+  .zone10{stroke:var(--u10);fill:none;stroke-width:1.6;stroke-dasharray:5 3}
+  .zone12{stroke:var(--u12);fill:none;stroke-width:1.8}
+  .bandDash{fill:var(--accent);opacity:.15}
+  .bandGate{fill:var(--gold);opacity:.18}
+  .lblStation{fill:var(--accent);font-size:20px;font-weight:800;letter-spacing:.01em}
+  .lblBracketTitle{fill:var(--gold);font-size:20px;font-weight:900;letter-spacing:.01em}
+  .lbl{fill:var(--text);font-size:14px;font-weight:700}
+  .lblSm{fill:var(--muted);font-size:12px;font-weight:600}
+  .lblXs{fill:var(--muted);font-size:11px;font-weight:600}
+  .lblGold{fill:var(--gold);font-size:14px;font-weight:800}
+  .age8{fill:var(--u8);font-size:14px;font-weight:800}
+  .age10{fill:var(--u10);font-size:14px;font-weight:800}
+  .age12{fill:var(--u12);font-size:14px;font-weight:800}
+  .tableIcon{fill:var(--card);stroke:var(--line);stroke-width:1.4}
+</style>
+
+<!-- OUTER BACKGROUND -->
+<rect class="field" x="5" y="5" width="990" height="890" rx="6"/>
+
+<!-- 3x3 GRID CELL OUTLINES (visual structure only) -->
+<rect class="cellOutline" x="40" y="40" width="290" height="220"/>
+<rect class="cellOutline" x="355" y="40" width="290" height="220"/>
+<rect class="cellOutline" x="670" y="40" width="290" height="220"/>
+<rect class="cellOutline" x="40" y="280" width="290" height="240"/>
+<rect class="cellOutline" x="355" y="280" width="290" height="240"/>
+<rect class="cellOutline" x="670" y="280" width="290" height="240"/>
+<rect class="cellOutline" x="40" y="540" width="290" height="320"/>
+<rect class="cellOutline" x="355" y="540" width="290" height="320"/>
+<rect class="cellOutline" x="670" y="540" width="290" height="320"/>
+
+<!-- ================= TOP-LEFT CELL : STATION 2 — AGILITY ================= -->
+<text class="lblStation" x="50" y="66">S2 — AGILITY</text>
+<text class="lblSm" x="50" y="84">5-10-5 + mirror box</text>
+
+<circle class="cone" cx="70" cy="94" r="5"/>
+<circle class="cone" cx="140" cy="94" r="5"/>
+<circle class="cone" cx="210" cy="94" r="5"/>
+<line class="lineMain" x1="70" y1="94" x2="210" y2="94"/>
+<text class="lbl" x="50" y="112">5-10-5 — cones 5 yd apart</text>
+<text class="lblSm" x="50" y="126">center line painted</text>
+
+<rect class="zone12" x="157" y="140" width="56" height="56"/>
+<rect class="zone10" x="162" y="145" width="46" height="46"/>
+<rect class="zone8" x="166" y="149" width="38" height="38" stroke-dasharray="5 3"/>
+<text class="age8" x="50" y="210">8U — 4 yd</text>
+<text class="age10" x="50" y="225">10U — 5 yd</text>
+<text class="age12" x="50" y="240">12U — 6 yd</text>
+<text class="lblXs" x="50" y="253">dashed = size insets</text>
+
+<!-- ================= TOP-CENTER CELL : MAP KEY ================= -->
+<text class="lbl" x="365" y="66" font-size="14" font-weight="800" fill="var(--accent)">MAP KEY</text>
+
+<circle class="cone" cx="370" cy="100" r="5"/>
+<text class="lbl" x="384" y="104">= cone</text>
+<circle class="cone8" cx="370" cy="120" r="5"/>
+<text class="lbl" x="384" y="124">8U (green)</text>
+<circle class="cone10" cx="370" cy="140" r="5"/>
+<text class="lbl" x="384" y="144">10U (blue)</text>
+<circle class="cone12" cx="370" cy="160" r="5"/>
+<text class="lbl" x="384" y="164">12U (orange)</text>
+<line class="lineMain" x1="360" y1="182" x2="380" y2="182"/>
+<text class="lbl" x="390" y="186">= painted line</text>
+<line class="lineDash" x1="360" y1="204" x2="380" y2="204"/>
+<text class="lblSm" x="390" y="208">= cone-only, not painted</text>
+
+<!-- ================= TOP-RIGHT CELL : STATION 3 — HANDS ================= -->
+<text class="lblStation" x="680" y="66">S3 — HANDS</text>
+<text class="lblSm" x="680" y="84">throw distances + Tuck &amp; Go</text>
+
+<circle class="cone" cx="700" cy="100" r="6"/>
+<text class="lbl" x="714" y="104">THROWER</text>
+<line class="lineThin" x1="700" y1="100" x2="700" y2="212"/>
+
+<circle class="cone8" cx="700" cy="124" r="5"/>
+<text class="age8" x="714" y="128">8U — 8 yd</text>
+<circle class="cone10" cx="700" cy="148" r="5"/>
+<text class="age10" x="714" y="152">10U — 10 yd</text>
+<circle class="cone12" cx="700" cy="172" r="5"/>
+<text class="age12" x="714" y="176">12U — 12 yd</text>
+
+<circle class="cone" cx="700" cy="190" r="5"/>
+<text class="lbl" x="714" y="194">CATCH POINT</text>
+<line class="lineDash" x1="685" y1="212" x2="715" y2="212"/>
+<circle class="cone" cx="685" cy="212" r="4.5"/>
+<circle class="cone" cx="715" cy="212" r="4.5"/>
+<text class="lbl" x="680" y="234">TUCK &amp; GO GATE</text>
+<text class="lblSm" x="680" y="248">5 yd past catch point</text>
+
+<line class="lineMain" x1="920" y1="95" x2="920" y2="215"/>
+<text class="lblSm" x="933" y="155" text-anchor="middle" transform="rotate(-90 933 155)">PAINTED SIDELINE</text>
+
+<!-- ================= MID-LEFT / MID-RIGHT CELLS : open grass, no marks ================= -->
+
+<!-- ================= MID-CENTER CELL : BRACKET FIELD (nothing else enters this cell) ================= -->
+<text class="lblBracketTitle" x="365" y="306">BRACKET FIELD</text>
+<text class="lblGold" x="365" y="326">7:18 PM</text>
+
+<rect class="zone12" x="398" y="347" width="84" height="126"/>
+<rect class="zone10" x="405" y="357.5" width="70" height="105"/>
+<rect class="zone8" x="412" y="368" width="56" height="84" stroke-dasharray="5 3"/>
+
+<text class="age12" x="495" y="375">12U — 12×18 yd</text>
+<text class="age10" x="495" y="399">10U — 10×15 yd</text>
+<text class="age8" x="495" y="423">8U — 8×12 yd</text>
+<text class="lblXs" x="440" y="487" text-anchor="middle">empty until 7:18 PM</text>
+<text class="lblXs" x="440" y="502" text-anchor="middle">two lanes side-by-side</text>
+
+<!-- ================= BOTTOM-LEFT CELL : STATION 1 — SPEED &amp; POWER ================= -->
+<text class="lblStation" x="50" y="566">S1 — SPEED &amp; POWER</text>
+<text class="lblSm" x="50" y="584">paint this lane first</text>
+
+<text class="lblXs" x="87" y="602" text-anchor="middle">10-YD DASH</text>
+<text class="lblXs" x="282" y="602" text-anchor="middle">FLY GATE</text>
+<rect class="bandDash" x="55" y="606" width="65" height="20"/>
+<rect class="bandGate" x="250" y="606" width="65" height="20"/>
+
+<line class="lineMain" x1="55" y1="616" x2="315" y2="616"/>
+<line class="tickMain" x1="55" y1="610" x2="55" y2="622"/>
+<line class="tickMain" x1="120" y1="610" x2="120" y2="622"/>
+<line class="tickMain" x1="185" y1="610" x2="185" y2="622"/>
+<line class="tickMain" x1="250" y1="610" x2="250" y2="622"/>
+<line class="tickMain" x1="315" y1="610" x2="315" y2="622"/>
+<text class="lblXs" x="55" y="636" text-anchor="middle">0</text>
+<text class="lblXs" x="120" y="636" text-anchor="middle">10</text>
+<text class="lblXs" x="185" y="636" text-anchor="middle">20</text>
+<text class="lblXs" x="250" y="636" text-anchor="middle">30</text>
+<text class="lblXs" x="315" y="636" text-anchor="middle">40</text><text class="age12" x="120" y="651" text-anchor="middle" font-size="11" font-weight="800">12U start</text><text class="age10" x="152.5" y="663" text-anchor="middle" font-size="11" font-weight="800">10U start</text><text class="age8" x="185" y="651" text-anchor="middle" font-size="11" font-weight="800">8U start</text>
+
+<!-- fly run-in start ticks: gate is fixed (last 10 yd); start x = gate minus run-in length -->
+<line x1="120" y1="606" x2="120" y2="626" stroke="var(--u12)" stroke-width="2.4"/>
+<line x1="152.5" y1="606" x2="152.5" y2="626" stroke="var(--u10)" stroke-width="2.4"/>
+<line x1="185" y1="606" x2="185" y2="626" stroke="var(--u8)" stroke-width="2.4"/>
+
+<text class="lblSm" x="50" y="684">Longer build = start farther back.</text><text class="lblSm" x="50" y="700">Every age finishes through the same fly gate.</text>
+
+
+
+
+<text class="lbl" x="50" y="726">JUMP BOX</text>
+<line class="lineMain" x1="70" y1="742" x2="70" y2="782"/>
+<text class="lblSm" x="78" y="746">takeoff line</text>
+<line class="lineThin" x1="70" y1="762" x2="230" y2="762"/>
+<line class="tickMain" x1="70" y1="752" x2="70" y2="772"/>
+<line class="tickMinor" x1="78" y1="756" x2="78" y2="768"/>
+<line class="tickMain" x1="86" y1="752" x2="86" y2="772"/>
+<line class="tickMinor" x1="94" y1="756" x2="94" y2="768"/>
+<line class="tickMain" x1="102" y1="752" x2="102" y2="772"/>
+<line class="tickMinor" x1="110" y1="756" x2="110" y2="768"/>
+<line class="tickMain" x1="118" y1="752" x2="118" y2="772"/>
+<line class="tickMinor" x1="126" y1="756" x2="126" y2="768"/>
+<line class="tickMain" x1="134" y1="752" x2="134" y2="772"/>
+<line class="tickMinor" x1="142" y1="756" x2="142" y2="768"/>
+<line class="tickMain" x1="150" y1="752" x2="150" y2="772"/>
+<line class="tickMinor" x1="158" y1="756" x2="158" y2="768"/>
+<line class="tickMain" x1="166" y1="752" x2="166" y2="772"/>
+<line class="tickMinor" x1="174" y1="756" x2="174" y2="768"/>
+<line class="tickMain" x1="182" y1="752" x2="182" y2="772"/>
+<line class="tickMinor" x1="190" y1="756" x2="190" y2="768"/>
+<line class="tickMain" x1="198" y1="752" x2="198" y2="772"/>
+<line class="tickMinor" x1="206" y1="756" x2="206" y2="768"/>
+<line class="tickMain" x1="214" y1="752" x2="214" y2="772"/>
+<line class="tickMinor" x1="222" y1="756" x2="222" y2="768"/>
+<line class="tickMain" x1="230" y1="752" x2="230" y2="772"/>
+<text class="lblSm" x="70" y="798">10 FT RUNOUT — mark every 6 in</text>
+
+<!-- ================= BOTTOM-CENTER CELL : CHECK-IN &amp; SUPPLIES (parking-lot end) ================= -->
+<text class="lbl" x="365" y="566" font-size="14" font-weight="800" fill="var(--accent)">CHECK-IN &amp; SUPPLIES</text>
+<text class="lblSm" x="365" y="584">parking-lot end</text>
+
+<rect class="tableIcon" x="400" y="610" width="200" height="60"/>
+<text class="lbl" x="500" y="602" text-anchor="middle">CHECK-IN TABLE</text>
+<text class="lblSm" x="500" y="690" text-anchor="middle">pinnies laid out in order</text>
+
+<rect class="tableIcon" x="400" y="730" width="200" height="60"/>
+<text class="lbl" x="500" y="722" text-anchor="middle">WATER / GEAR</text>
+
+<!-- ================= BOTTOM-RIGHT CELL : STATION 4 — ARM &amp; MESH ================= -->
+<text class="lblStation" x="680" y="566">S4 — ARM &amp; MESH</text>
+<text class="lblSm" x="680" y="584">LOS, gates, distance throw</text>
+
+<line class="lineMain" x1="705" y1="606" x2="705" y2="656"/>
+<circle class="cone" cx="705" cy="606" r="4"/>
+<circle class="cone" cx="705" cy="656" r="4"/>
+<text class="lblSm" x="705" y="598" text-anchor="middle">LOS/SNAP</text>
+<text class="lblSm" x="705" y="672" text-anchor="middle">5 YD BACK</text>
+
+<line class="lineThin" x1="780" y1="612" x2="885" y2="612"/>
+<line class="lineDash" x1="885" y1="612" x2="950" y2="612"/>
+<text class="lblSm" x="950" y="600" text-anchor="end">OPEN →</text>
+
+<line x1="836" y1="596" x2="836" y2="628" class="zone8" stroke-width="2.2"/>
+<circle class="cone8" cx="836" cy="596" r="4"/>
+<circle class="cone8" cx="836" cy="628" r="4"/>
+<line x1="864" y1="602" x2="864" y2="622" class="zone10" stroke-width="2.2"/>
+<circle class="cone10" cx="864" cy="602" r="4"/>
+<circle class="cone10" cx="864" cy="622" r="4"/>
+<line x1="885" y1="604" x2="885" y2="620" class="zone12" stroke-width="2.2"/>
+<circle class="cone12" cx="885" cy="604" r="4"/>
+<circle class="cone12" cx="885" cy="620" r="4"/>
+
+<text class="age8" x="680" y="700">8U 8 yd · 5-yd gate</text>
+<text class="age10" x="680" y="714">10U 12 yd · 3-yd gate</text>
+<text class="age12" x="680" y="728">12U 15 yd · 2-yd gate</text>
+<text class="lblGold" x="680" y="750">DISTANCE THROW</text>
+<text class="lblSm" x="680" y="764">open space · best of 2 · wheel</text>
+
+</svg>
+<div class="figcap"><b>Map key</b> (also drawn in the top-center cell of the diagram): solid dot/circle = cone. Colored dot or outline = age-specific mark (<span style="color:var(--u8)">8U green</span> · <span style="color:var(--u10)">10U blue</span> · <span style="color:var(--u12)">12U orange</span>). Solid heavy line = painted line. Thin/dashed line = reference line or cone-only boundary, not painted. Field footprint ≈ 60 × 40 yd overall — pace it off with the wheel; station spacing matters more than exact edges.</div>
+</div>
+
+<div class="agerow">
+  <div class="agechip a8"><b>8U</b>green — smallest distances, smallest boxes</div>
+  <div class="agechip a10"><b>10U</b>blue — middle distances</div>
+  <div class="agechip a12"><b>12U</b>orange — largest distances, largest boxes</div>
+</div>
+
+<div class="sect">Setup Order</div>
+<div class="block">
+<h3>Paint before cones — these lines never move all season</h3>
+<div class="item"><h4>1 · Speed lane (paint first)</h4>
+<p>One straight 40-yard line. Hash marks at 0, 10, 20, 30, 40. This is the longest, straightest reference on the field — every other station's spacing gets paced off this line, so it has to go down first while the wheel is fresh and the string line is taut.</p></div>
+<div class="item"><h4>2 · Jump box (paint second)</h4>
+<p>Takeoff line, then the 10-foot runout marked every 6 inches. Do this right after the lane while the wheel is still out and calibrated — no need to re-measure from scratch.</p></div>
+<div class="item"><h4>3 · Agility 5-10-5 (paint third)</h4>
+<p>Center line connecting the three cone spots, 5 yards apart. This is the smallest and quickest of the three painted lines, so it's last — easy to true up in the few minutes before check-in.</p></div>
+<div class="item"><h4>4 · Cones — Stations 2, 3, 4</h4>
+<p>The mirror box, hands marks, and arm/mesh gates all scale by age group and aren't painted — set these with cones only, using the wheel off the painted lane/lines already down.</p></div>
+<div class="item"><h4>5 · Check-in table &amp; water/gear</h4>
+<p>One table at the parking-lot end with pinnies laid out in order. Water/gear spot opposite it, same end of the field.</p></div>
+<div class="item"><h4>6 · Leave the middle empty</h4>
+<p>Don't set a single cone in the center. That's the bracket field at 7:18 — if steps 1-5 land in the right spots around the outside, the middle is already correct and nobody touches a cone to run the bracket.</p></div>
+</div>
+
+<div class="sect">Cone Count — grab the right pile once</div>
+<div class="block">
+<table class="scale">
+<thead><tr><th>Station</th><th>Item</th><th>Count</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>S1 · Speed</td><td>Dash gate (0/10 yd ends)</td><td>2</td><td>neutral cones on the painted hashes</td></tr>
+<tr><td>S1 · Speed</td><td>Fly timing gate (30/40 yd ends)</td><td>2</td><td>same fixed gate, every age</td></tr>
+<tr><td>S1 · Speed</td><td>Fly run-in start markers</td><td>3</td><td>1 each color: 8U green / 10U blue / 12U orange</td></tr>
+<tr><td>S1 · Speed</td><td>Jump box takeoff marker</td><td>1</td><td>at the painted takeoff line</td></tr>
+<tr><td><b>S1 subtotal</b></td><td></td><td><b>8</b></td><td></td></tr>
+<tr><td>S2 · Agility</td><td>5-10-5 cones</td><td>3</td><td>set on the painted dots</td></tr>
+<tr><td>S2 · Agility</td><td>Mirror box corners</td><td>4</td><td>set to 6-yd (12U) size; step in 1 yd/side for 10U, 2 yd/side for 8U using the wheel</td></tr>
+<tr><td><b>S2 subtotal</b></td><td></td><td><b>7</b></td><td></td></tr>
+<tr><td>S3 · Hands</td><td>Thrower spot</td><td>1</td><td></td></tr>
+<tr><td>S3 · Hands</td><td>Receiver start marks</td><td>3</td><td>1 each color, 8/10/12 yd</td></tr>
+<tr><td>S3 · Hands</td><td>Tuck &amp; Go gate</td><td>2</td><td>5 yd past the catch point</td></tr>
+<tr><td><b>S3 subtotal</b></td><td></td><td><b>6</b></td><td></td></tr>
+<tr><td>S4 · Arm &amp; Mesh</td><td>LOS / snap marker</td><td>1</td><td></td></tr>
+<tr><td>S4 · Arm &amp; Mesh</td><td>Coach-catcher spot</td><td>1</td><td>5 yd back from LOS</td></tr>
+<tr><td>S4 · Arm &amp; Mesh</td><td>Target gates</td><td>6</td><td>2 per age × 3 ages (8/12/15 yd, 5/3/2-yd gates)</td></tr>
+<tr><td><b>S4 subtotal</b></td><td></td><td><b>8</b></td><td>distance throw needs no cones — just the wheel</td></tr>
+<tr><td><b>Grand total</b></td><td></td><td><b>29</b></td><td>plus whatever you want to mark check-in and water/gear</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sect">Paint List — exact lines to spray, in order</div>
+<div class="block">
+<div class="item"><h4>1 · Speed lane</h4>
+<p>One straight 40-yard line. Hash marks at 0, 10, 20, 30, 40 yards.</p></div>
+<div class="item"><h4>2 · Jump box</h4>
+<p>A takeoff line, plus a measuring line running 10 feet out from it, marked every 6 inches.</p></div>
+<div class="item"><h4>3 · Agility square (5-10-5)</h4>
+<p>Center line connecting three cone spots set 5 yards apart (10 yards end to end).</p></div>
+<div class="warn"><b>That's it.</b> Stations 2's mirror box and Stations 3 &amp; 4's marks are cone-only — they scale by age group, so paint would be wrong for two of every three groups that use them.</div>
+</div>
+
+</main>
+
+<footer>Field Map for Practice 1 · 2026 season · pair with the  and the <a class="dlink" href="index.html">Drill Hub</a></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, sun=document.getElementById('sun');
+  try{ if(localStorage.getItem('ffSun')==='1'){root.setAttribute('data-sun','1');} }catch(e){}
+  sun.addEventListener('click',function(){
+    var on=root.getAttribute('data-sun')==='1';
+    if(on){root.removeAttribute('data-sun');}else{root.setAttribute('data-sun','1');}
+    try{localStorage.setItem('ffSun',on?'0':'1');}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
