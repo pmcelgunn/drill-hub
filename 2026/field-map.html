@@ -158,7 +158,7 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 
 <!-- ================= TOP-LEFT CELL : STATION 2 — AGILITY ================= -->
 <text class="lblStation" x="50" y="66">S2 — AGILITY</text>
-<text class="lblSm" x="50" y="84">5-10-5 + mirror box</text>
+<text class="lblSm" x="50" y="84">5-10-5 + mirror rails</text>
 
 <circle class="cone" cx="70" cy="94" r="5"/>
 <circle class="cone" cx="140" cy="94" r="5"/>
@@ -173,7 +173,7 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 <text class="age8" x="50" y="210">8U — 4 yd</text>
 <text class="age10" x="50" y="225">10U — 5 yd</text>
 <text class="age12" x="50" y="240">12U — 6 yd</text>
-<text class="lblXs" x="50" y="253">dashed = size insets</text>
+<text class="lblXs" x="50" y="253">kids on OPPOSITE edges, 3 yds apart — never inside</text>
 
 <!-- ================= TOP-CENTER CELL : MAP KEY ================= -->
 <text class="lbl" x="365" y="66" font-size="14" font-weight="800" fill="var(--accent)">MAP KEY</text>
@@ -218,6 +218,40 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 <text class="lblSm" x="933" y="155" text-anchor="middle" transform="rotate(-90 933 155)">PAINTED SIDELINE</text>
 
 <!-- ================= MID-LEFT / MID-RIGHT CELLS : open grass, no marks ================= -->
+
+
+<!-- ================= MID-LEFT CELL : TEAM RELAY (7:36) ================= -->
+<text class="lblStation" x="50" y="306" fill="var(--gold)">TEAM RELAY — 7:36</text>
+<text class="lblSm" x="50" y="324">set up during the last rotation · red vs blue</text>
+
+<text class="lbl" x="50" y="352">LANE A</text>
+<line class="lineThin" x1="105" y1="348" x2="150" y2="348"/>
+<rect x="105" y="341" width="45" height="14" fill="none" stroke="var(--text)" stroke-width="1.4"/>
+<line class="tickMinor" x1="114" y1="341" x2="114" y2="355"/>
+<line class="tickMinor" x1="123" y1="341" x2="123" y2="355"/>
+<line class="tickMinor" x1="132" y1="341" x2="132" y2="355"/>
+<line class="tickMinor" x1="141" y1="341" x2="141" y2="355"/>
+<text class="lblXs" x="158" y="352">ladder — 2 feet in every square</text>
+
+<text class="lbl" x="50" y="384">LANE B</text>
+<circle class="cone" cx="110" cy="380" r="3.5"/>
+<circle class="cone" cx="122" cy="380" r="3.5"/>
+<circle class="cone" cx="134" cy="380" r="3.5"/>
+<circle class="cone" cx="146" cy="380" r="3.5"/>
+<circle class="cone" cx="158" cy="380" r="3.5"/>
+<text class="lblXs" x="170" y="384">5 quick-feet cones — 1 foot each side</text>
+
+<line class="lineDash" x1="50" y1="408" x2="290" y2="408"/>
+<circle class="cone8" cx="160" cy="428" r="4.5"/>
+<circle class="cone10" cx="215" cy="428" r="4.5"/>
+<circle class="cone12" cx="270" cy="428" r="4.5"/>
+<text class="lblXs" x="50" y="432">turn cones →</text>
+<text class="age8" x="160" y="448" text-anchor="middle">8U 12</text>
+<text class="age10" x="215" y="462" text-anchor="middle">10U 15</text>
+<text class="age12" x="270" y="448" text-anchor="middle">12U 18</text>
+<text class="lblXs" x="50" y="478">yds from the start line · coach at the turn tosses a catch</text>
+<text class="lblSm" x="50" y="492">out the lane → sprint to YOUR cone → catch → back → tag</text>
+<text class="lblGold" x="50" y="512">HEAT 2: TEAMS SWAP LANES</text>
 
 <!-- ================= MID-CENTER CELL : BRACKET FIELD (nothing else enters this cell) ================= -->
 <text class="lblBracketTitle" x="365" y="306">BRACKET FIELD</text>
@@ -297,14 +331,14 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 
 <rect class="tableIcon" x="400" y="610" width="200" height="60"/>
 <text class="lbl" x="500" y="602" text-anchor="middle">CHECK-IN TABLE</text>
-<text class="lblSm" x="500" y="690" text-anchor="middle">pinnies laid out in order</text>
+<text class="lblSm" x="500" y="690" text-anchor="middle">check-in sheet + score cards + pens</text>
 
 <rect class="tableIcon" x="400" y="730" width="200" height="60"/>
 <text class="lbl" x="500" y="722" text-anchor="middle">WATER / GEAR</text>
 
 <!-- ================= BOTTOM-RIGHT CELL : STATION 4 — ARM &amp; MESH ================= -->
 <text class="lblStation" x="680" y="566">S4 — ARM &amp; MESH</text>
-<text class="lblSm" x="680" y="584">LOS, gates, distance throw</text>
+<text class="lblSm" x="680" y="584">LOS, 3 target gates (L·M·R, 5 yds apart), distance throw</text>
 
 <line class="lineMain" x1="705" y1="606" x2="705" y2="656"/>
 <circle class="cone" cx="705" cy="606" r="4"/>
@@ -354,7 +388,7 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 <div class="item"><h4>4 · Cones — Stations 2, 3, 4</h4>
 <p>The mirror box, hands marks, and arm/mesh gates all scale by age group and aren't painted — set these with cones only, using the wheel off the painted lane/lines already down.</p></div>
 <div class="item"><h4>5 · Check-in table &amp; water/gear</h4>
-<p>One table at the parking-lot end with pinnies laid out in order. Water/gear spot opposite it, same end of the field.</p></div>
+<p>One table at the parking-lot end with the check-in sheet, printed score cards, pens, and the relay pinnies. Water/gear spot opposite it, same end of the field.</p></div>
 <div class="item"><h4>6 · Leave the middle empty</h4>
 <p>Don't set a single cone in the center. That's the bracket field at 7:18 — if steps 1-5 land in the right spots around the outside, the middle is already correct and nobody touches a cone to run the bracket.</p></div>
 </div>
@@ -380,7 +414,8 @@ footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;te
 <tr><td>S4 · Arm &amp; Mesh</td><td>Coach-catcher spot</td><td>1</td><td>5 yd back from LOS</td></tr>
 <tr><td>S4 · Arm &amp; Mesh</td><td>Target gates</td><td>6</td><td>2 per age × 3 ages (8/12/15 yd, 5/3/2-yd gates)</td></tr>
 <tr><td><b>S4 subtotal</b></td><td></td><td><b>8</b></td><td>distance throw needs no cones — just the wheel</td></tr>
-<tr><td><b>Grand total</b></td><td></td><td><b>29</b></td><td>plus whatever you want to mark check-in and water/gear</td></tr>
+<tr><td>Relay (7:36)</td><td>Quick-feet + turn cones + start line</td><td>11</td><td>5 lane-B cones · 6 turn cones (3 per lane) · ladder is lane A · set up during last rotation</td></tr>
+<tr><td><b>Grand total</b></td><td></td><td><b>40</b></td><td>plus whatever you want to mark check-in and water/gear</td></tr>
 </tbody>
 </table>
 </div>

@@ -107,7 +107,7 @@ textarea{width:100%;min-height:9rem;padding:.6rem;border-radius:.5rem;border:1px
 <section class="panel on" id="p-entry">
   <div class="card">
     <h2>Roster</h2>
-    <p class="hint">Add every kid from the master roster card. The number is their pinnie number. Everything saves in this browser automatically — but export a backup from the Save / Load tab before you close the laptop.</p>
+    <p class="hint">Load the roster file from the Save / Load tab (or add kids by hand). The # is their jersey number. “Plays up” puts a kid in a second division for leaderboards and the position board. Everything saves in this browser automatically — export a backup before you close the laptop.</p>
     <div class="row">
       <input id="an" type="number" placeholder="#" style="width:4.5rem" min="1">
       <input id="anm" type="text" placeholder="Player name" style="flex:1 1 10rem">
@@ -123,7 +123,7 @@ textarea{width:100%;min-height:9rem;padding:.6rem;border-radius:.5rem;border:1px
     <div class="scroll">
       <table id="t-entry">
         <thead><tr>
-          <th>#</th><th>Name</th><th>Age</th>
+          <th>#</th><th>Name</th><th>Age</th><th>Plays up</th>
           <th>10yd A</th><th>10yd B</th><th>Fly A</th><th>Fly B</th><th>Broad A</th><th>Broad B</th>
           <th>5-10-5 R</th><th>5-10-5 L</th><th>Mirror<br>1-5</th>
           <th>Gauntlet<br>/10</th><th>Hands<br>1-5</th>
@@ -142,7 +142,7 @@ textarea{width:100%;min-height:9rem;padding:.6rem;border-radius:.5rem;border:1px
 <section class="panel" id="p-board">
   <div class="card">
     <h2>Leaderboards</h2>
-    <p class="hint">Ranked inside each age group only. An 8-year-old's 10-yard dash never gets compared to a 12-year-old's, because that comparison tells you nothing and tells the kid something worse.</p>
+    <p class="hint">Ranked inside each age group only. A kid playing up in a second division shows in BOTH groups, ranked against each pool separately. An 8-year-old's dash never gets compared to a 12-year-old's.</p>
     <div class="row">
       <select id="metric"></select>
       <button class="btn" id="printboard" type="button">Print</button>
@@ -314,7 +314,7 @@ function load(){
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(players)); }catch(e){} }
 
 function blank(n,name,age){
-  var o={n:n||'',name:name||'',age:age||'10U',notes:''};
+  var o={n:n||'',name:name||'',age:age||'10U',age2:'',notes:''};
   F.forEach(function(f){o[f[0]]='';});
   return o;
 }
@@ -328,7 +328,9 @@ function renderEntry(){
     var h='<td><input value="'+esc(p.n)+'" data-i="'+i+'" data-k="n" style="width:3rem"></td>'+
           '<td><input class="wide" value="'+esc(p.name)+'" data-i="'+i+'" data-k="name"></td>'+
           '<td><select data-i="'+i+'" data-k="age">'+AGES.map(function(a){
-             return '<option'+(p.age===a?' selected':'')+'>'+a+'</option>';}).join('')+'</select></td>';
+             return '<option'+(p.age===a?' selected':'')+'>'+a+'</option>';}).join('')+'</select></td>'+
+          '<td><select data-i="'+i+'" data-k="age2"><option value=""'+(!p.age2?' selected':'')+'>—</option>'+AGES.map(function(a){
+             return '<option'+(p.age2===a?' selected':'')+'>'+a+'</option>';}).join('')+'</select></td>';
     F.forEach(function(f){
       if(f[2]==='snap'){
         h+='<td><select data-i="'+i+'" data-k="'+f[0]+'"><option value=""></option>'+
@@ -375,10 +377,11 @@ document.getElementById('seed').addEventListener('click',function(){
 });
 
 /* ---------- percentiles ---------- */
-function percentile(p,mk){
+function inGroup(p,age){ return p.age===age || p.age2===age; }
+function percentile(p,mk,group){
   var m=MMAP[mk], v=m[2](p);
   if(v===null) return null;
-  var peers=players.filter(function(q){return q.age===p.age && m[2](q)!==null;});
+  var peers=players.filter(function(q){return inGroup(q,group) && m[2](q)!==null;});
   if(peers.length<2) return null;
   var vals=peers.map(function(q){return m[2](q);});
   var lower=0, equal=0;
@@ -388,10 +391,10 @@ function percentile(p,mk){
   });
   return Math.round((lower+0.5*equal)/vals.length*100);
 }
-function posScore(p,weights){
+function posScore(p,weights,group){
   var tot=0, wsum=0;
   for(var k in weights){
-    var pc=percentile(p,k);
+    var pc=percentile(p,k,group);
     if(pc===null) continue;
     tot+=pc*weights[k]; wsum+=weights[k];
   }
@@ -408,7 +411,7 @@ function renderBoards(){
   host.innerHTML='';
   var any=false;
   AGES.forEach(function(age){
-    var list=players.filter(function(p){return p.age===age && m[2](p)!==null;});
+    var list=players.filter(function(p){return inGroup(p,age) && m[2](p)!==null;});
     if(!list.length) return;
     any=true;
     list.sort(function(a,b){ var x=m[2](a), y=m[2](b); return m[3]?x-y:y-x; });
@@ -436,10 +439,10 @@ function renderPos(){
   var ages = filt==='all'?AGES:[filt];
   var any=false;
   ages.forEach(function(age){
-    var pool=players.filter(function(p){return p.age===age;});
+    var pool=players.filter(function(p){return inGroup(p,age);});
     if(!pool.length) return;
     var cards=POS.map(function(P){
-      var scored=pool.map(function(p){return {p:p,s:posScore(p,P[2])};})
+      var scored=pool.map(function(p){return {p:p,s:posScore(p,P[2],age)};})
                      .filter(function(x){return x.s!==null;})
                      .sort(function(a,b){return b.s-a.s;}).slice(0,5);
       if(!scored.length) return '';
@@ -467,8 +470,8 @@ document.getElementById('expjson').addEventListener('click',function(){
   download('combine-2026-practice-01.json',JSON.stringify(players,null,2),'application/json');
 });
 document.getElementById('expcsv').addEventListener('click',function(){
-  var cols=['n','name','age'].concat(F.map(function(f){return f[0];})).concat(['notes']);
-  var head=['#','Name','Age'].concat(F.map(function(f){return f[1];})).concat(['Notes']);
+  var cols=['n','name','age','age2'].concat(F.map(function(f){return f[0];})).concat(['notes']);
+  var head=['#','Name','Age','Plays up'].concat(F.map(function(f){return f[1];})).concat(['Notes']);
   var derived=M.map(function(m){return m[1];});
   var lines=[head.concat(derived).join(',')];
   players.forEach(function(p){
