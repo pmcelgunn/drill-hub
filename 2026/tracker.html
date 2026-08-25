@@ -120,12 +120,12 @@ textarea{width:100%;min-height:9rem;padding:.6rem;border-radius:.5rem;border:1px
 
   <div class="card">
     <h2>Results</h2>
-    <p class="hint">Times in seconds (2.14). Broad jump in inches. Distance throw in yards. Snap: C clean, L low, W wild. Blank is fine — a kid who missed a station just doesn't get ranked in it.</p>
+    <p class="hint">Times in seconds (2.14). Best 40 = fastest 40-yard dash. Broad jump in inches. Distance throw in yards. Snap: C clean, L low, W wild. Blank is fine — a kid who missed a station just doesn't get ranked in it.</p>
     <div class="scroll">
       <table id="t-entry">
         <thead><tr>
           <th>#</th><th>Name</th><th>Age</th><th>Plays up</th>
-          <th>10yd A</th><th>10yd B</th><th>Fly A</th><th>Fly B</th><th>Broad A</th><th>Broad B</th>
+          <th>10yd A</th><th>10yd B</th><th>Fly A</th><th>Fly B</th><th>Best 40</th><th>Broad A</th><th>Broad B</th>
           <th>5-10-5 R</th><th>5-10-5 L</th><th>Mirror<br>1-5</th>
           <th>Gauntlet<br>/10</th><th>Hands<br>1-5</th>
           <th>Snap SG</th><th>Snap UC</th><th>Target<br>/5</th><th>Dist<br>yds</th><th>Arm<br>1-5</th>
@@ -228,7 +228,7 @@ var AGES=['8U','10U','12U'];
 /* field key, label, type, lower-is-better */
 var F=[
  ['d10a','10yd A','num'],['d10b','10yd B','num'],
- ['flya','Fly A','num'],['flyb','Fly B','num'],
+ ['flya','Fly A','num'],['flyb','Fly B','num'],['d40','Best 40','num'],
  ['brda','Broad A','num'],['brdb','Broad B','num'],
  ['agr','5-10-5 R','num'],['agl','5-10-5 L','num'],
  ['mir','Mirror','num'],['gau','Gauntlet','num'],['hnd','Hands','num'],
@@ -242,6 +242,7 @@ var F=[
 var M=[
  ['dash','10-Yard Dash',function(p){return best(p.d10a,p.d10b,true);},true,'s'],
  ['fly','Flying 10',function(p){return best(p.flya,p.flyb,true);},true,'s'],
+ ['d40','40-Yard Dash (fastest)',function(p){return num(p.d40);},true,'s'],
  ['broad','Standing Broad Jump',function(p){return best(p.brda,p.brdb,false);},false,'in'],
  ['agil','5-10-5 Pro Agility',function(p){return best(p.agr,p.agl,true);},true,'s'],
  ['mir','Reactive Mirror',function(p){return num(p.mir);},false,''],
@@ -262,12 +263,12 @@ var MMAP={}; M.forEach(function(m){MMAP[m[0]]=m;});
 var POS=[
  ['Quarterback','Arm first, then the calm to receive a snap.',{tgt:.35,dst:.22,arm:.28,snap:.15}],
  ['Center','The most under-scouted job in this league.',{snap:.65,hnd:.20,agil:.15}],
- ['Deep Threat (X/Z)','Top-end speed plus hands that work over the shoulder.',{fly:.40,gau:.30,hnd:.30}],
+ ['Deep Threat (X/Z)','Top-end speed plus hands that work over the shoulder.',{fly:.25,d40:.15,gau:.30,hnd:.30}],
  ['Slot Receiver','Quickness in tight space and a reliable catch.',{agil:.35,gau:.35,hnd:.20,mir:.10}],
  ['Running Back / Jet','First-step burst and the ability to win one-on-one.',{dash:.35,agil:.22,offw:.28,hnd:.15}],
  ['Cornerback','Hips, reaction, and clean flag pulls.',{agil:.28,mir:.28,defw:.24,pul:.20}],
- ['Safety','Range, ball skills, and the willingness to talk.',{fly:.22,hnd:.24,defw:.24,pul:.16,mir:.14}],
- ['Rusher','Straight-line speed and a pull that finishes.',{dash:.45,defw:.30,pul:.25}]
+ ['Safety','Range, ball skills, and the willingness to talk.',{fly:.15,d40:.10,hnd:.21,defw:.24,pul:.16,mir:.14}],
+ ['Rusher','Straight-line speed and a pull that finishes.',{dash:.30,d40:.15,defw:.30,pul:.25}]
 ];
 
 var BANDS=[
