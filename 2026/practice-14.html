@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Practice 14 · Thu Oct 8 · Split Squads</title>
+<style>
+:root{
+  --bg:#0f172a; --card:#1e293b; --card2:#273449; --text:#f1f5f9; --muted:#94a3b8;
+  --line:#334155; --accent:#38bdf8; --gold:#fbbf24;
+  --u8:#4ade80; --u10:#38bdf8; --u12:#fb923c;
+  --spring:cubic-bezier(.32,.72,0,1);
+}
+html[data-sun="1"]{
+  --bg:#ffffff; --card:#ffffff; --card2:#eef2f7; --text:#0b1220; --muted:#475569;
+  --line:#94a3b8; --accent:#0369a1; --gold:#92600a;
+  --u8:#15803d; --u10:#0369a1; --u12:#c2410c;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  padding:0 0 3rem; -webkit-text-size-adjust:100%;
+}
+header{padding:.9rem .9rem .7rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:20}
+h1{font-size:1.25rem;margin:0;letter-spacing:-.02em;line-height:1.1}
+.sub{font-size:.75rem;color:var(--muted);margin-top:.25rem;line-height:1.4}
+.nav{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.navbtn{
+  padding:.45rem .8rem;border-radius:999px;font-size:.75rem;font-weight:700;
+  border:1px solid var(--line);background:var(--card2);color:var(--text);
+  text-decoration:none;cursor:pointer;transition:transform .1s ease-out,background .1s ease-out;
+}
+.navbtn:active{transform:scale(.96);background:var(--line)}
+
+.focus{margin:.7rem .9rem 0;background:var(--card2);border:1px solid var(--accent);border-radius:.85rem;padding:.7rem .8rem;font-size:.85rem;line-height:1.55}
+.focus b{color:var(--gold)}
+
+main{padding:.8rem .9rem}
+.sect{font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .55rem}
+
+.block{background:var(--card);border:1px solid var(--line);border-radius:.9rem;margin-bottom:.7rem;overflow:hidden}
+summary.bhead{
+  display:flex;align-items:center;gap:.65rem;padding:.8rem .85rem;cursor:pointer;list-style:none;
+  transition:background .1s ease-out;
+}
+summary.bhead:active{background:var(--card2)}
+summary.bhead::-webkit-details-marker{display:none}
+summary.bhead::marker{content:""}
+.time{
+  flex:0 0 auto;background:var(--card2);border:1px solid var(--line);border-radius:.5rem;
+  padding:.35rem .5rem;font-size:.7rem;font-weight:900;color:var(--accent);text-align:center;
+  min-width:4.4rem;line-height:1.3;font-variant-numeric:tabular-nums;
+}
+.bname{font-size:.98rem;font-weight:750;line-height:1.25;letter-spacing:-.005em}
+.bmeta{font-size:.7rem;color:var(--muted);margin-top:.15rem;line-height:1.35}
+.chev{margin-left:auto;color:var(--muted);flex:0 0 auto;transition:transform .32s var(--spring)}
+details[open]>.bhead .chev{transform:rotate(90deg)}
+
+.bwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s var(--spring)}
+details[open]>.bwrap{grid-template-rows:1fr}
+.bwrap>.bbody{overflow:hidden;min-height:0}
+.pad{border-top:1px solid var(--line);padding:.2rem .85rem .9rem}
+
+.item{margin-top:.7rem}
+.item h4{margin:0 0 .2rem;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.item p,.item li{font-size:.86rem;line-height:1.55;margin:0}
+.item ul{margin:0;padding-left:1.1rem}
+.item li{margin-bottom:.2rem}
+.item ol{margin:0;padding-left:1.25rem}
+.item ol li{margin-bottom:.25rem}
+
+.cues{background:var(--card2);border-radius:.65rem;padding:.6rem .75rem;margin-top:.7rem}
+.cues h4{color:var(--gold);margin:0 0 .25rem;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.cues p,.cues li{font-size:.83rem;line-height:1.5}
+.cues ul{margin:0;padding-left:1.1rem}
+
+.stationtag{display:inline-block;font-size:.62rem;font-weight:900;letter-spacing:.04em;padding:.15rem .45rem;border-radius:999px;margin-right:.35rem;color:#0b1220;vertical-align:.08em}
+
+/* age scaling table */
+.scale{width:100%;border-collapse:collapse;margin-top:.55rem;font-size:.78rem}
+.scale th,.scale td{border:1px solid var(--line);padding:.35rem .45rem;text-align:left;line-height:1.4}
+.scale thead th{background:var(--card2);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+.scale th.u8{color:var(--u8)} .scale th.u10{color:var(--u10)} .scale th.u12{color:var(--u12)}
+.scale td:first-child{font-weight:700;width:30%}
+.scale tbody tr:nth-child(even){background:rgba(148,163,184,.07)}
+
+.agerow{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+.agechip{font-size:.72rem;line-height:1.4;border-radius:.5rem;padding:.35rem .5rem;flex:1 1 8rem;border:1px solid var(--line);background:var(--card2)}
+.agechip b{display:block;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.1rem}
+.agechip.a8 b{color:var(--u8)} .agechip.a10 b{color:var(--u10)} .agechip.a12 b{color:var(--u12)}
+
+.checklist{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:.8rem .85rem;margin-bottom:.7rem}
+.checklist h3{margin:0 0 .5rem;font-size:.82rem;color:var(--gold);letter-spacing:-.005em}
+.checklist label{display:flex;align-items:flex-start;gap:.6rem;font-size:.86rem;padding:.5rem 0;border-bottom:1px solid var(--line);line-height:1.45;cursor:pointer}
+.checklist label:last-child{border-bottom:none}
+.checklist input{margin:.15rem 0 0;width:1.15rem;height:1.15rem;flex:0 0 auto;accent-color:var(--accent)}
+
+.warn{background:var(--card2);border:1px solid var(--gold);border-radius:.65rem;padding:.6rem .75rem;margin-top:.7rem;font-size:.82rem;line-height:1.5}
+.warn b{color:var(--gold)}
+
+.dlink{color:var(--accent);text-decoration:underline dotted;text-underline-offset:.2em}
+footer{padding:1rem .9rem;color:var(--muted);font-size:.72rem;line-height:1.5;text-align:center}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+  .bwrap{transition:none}
+}
+@media print{
+  html[data-sun]{--bg:#fff;--card:#fff;--card2:#f1f5f9;--text:#000;--muted:#333;--line:#888;--accent:#000;--gold:#000;--u8:#000;--u10:#000;--u12:#000}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  header{position:static}
+  .nav,footer{display:none}
+  .bwrap{grid-template-rows:1fr!important}
+  .bwrap>.bbody{overflow:visible!important}
+  .block,.checklist{border:1px solid #999;break-inside:avoid;page-break-inside:avoid}
+  .chev{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Practice 14 — Split Squads</h1>
+  <div class="sub">Thursday, Oct 8 · 6:00–8:00 PM · 10/12 together, 8U on their own · drills, then a long scrimmage, then a game</div>
+  <div class="nav">
+    <a class="navbtn" href="index.html">Drill Hub</a>
+    <a class="navbtn" href="plans.html">All Practices</a>
+    <a class="navbtn" href="tracker.html">Tracker</a>
+    <button class="navbtn" id="sun" type="button">Sun Mode</button>
+    <button class="navbtn" id="expand" type="button">Open All</button>
+  </div>
+</header>
+
+<div class="focus"><b>Tonight's mission:</b> 10/12 installs the whole defensive backfield — know your zone, own your cushion, win the 1-on-1. 8U sharpens the fundamentals: angles, clean handoffs, and reading a route off paper. Then the longest scrimmage block of the season, and a game to close.</div>
+
+<main>
+
+<div class="sect">First block — warm-up + split-squad drills</div>
+
+<details class="block" open>
+  <summary class="bhead">
+    <div class="time">6:00<br>10 min</div>
+    <div><div class="bname">Warm-Up</div><div class="bmeta">Whole team · standard routine · coaches lead</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d25">Dynamic line series</a> — 10 min</h4>
+    <p>Same routine: knee hugs · quad pull · lunges · Frankenstein · high knees · butt kickers · A-skip · shuffle · carioca · backpedal · build-ups 50/75/100%.</p></div>
+    <div class="cues"><h4>Split for tonight</h4>
+    <p>Two groups at 6:10: <b>10U + 12U together</b> (half in red pinnies, half in blue) and <b>8U on their own</b>. Drills still scale Rookie / Pro / All-Pro inside each group.</p></div>
+  </div></div></div>
+</details>
+
+<div class="rotation">&#8595; 6:10–7:05 · two squads, three drills each &#8595;</div>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">6:10<br>~15 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#38bdf8">10/12</span>Zone Defense Walk-Thru</div><div class="bmeta">Cones for all 6 zones · red vs blue pinnies</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d39">3x3 Zone Install (Six Zones)</a></h4>
+    <p>All six zones of the <b>3x3 base defense</b> marked with cones — three underneath, three deep.</p>
+    <ul>
+      <li><b>Know your zone and your responsibility</b> — every kid says his out loud: "this grass is mine."</li>
+      <li><b>The HELP rule:</b> when the ball goes to someone else's zone, you have an aiming point — underneath help aims for the runner's escape lane, deep help caps him deep. Help arrives under control, never past the ball.</li>
+      <li>Walk a ball around the formation; everyone shifts and re-calls their landmark. Finish with slow-motion plays — who has him, who's help?</li>
+    </ul></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>A kid who can't SAY his responsibility doesn't know it. Ask every kid.</li>
+    <li>Help is a lane, not a stampede — aim where the runner is going.</li></ul></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">next<br>~15 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#38bdf8">10/12</span>Backpedal Drill — DB School</div><div class="bmeta">3 at a time · 1 ball · lots of grass</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d40">DB School: Creep, Pedal &amp; Weave</a></h4>
+    <p>Review the base first, then chain the weave:</p>
+    <ol>
+      <li><b>"Creep"</b> — slow controlled walk back.</li>
+      <li><b>"Pedal"</b> — lengthen the stride and "run" backwards. Hips down, chest over knees.</li>
+      <li><b>Crossover Weave</b> — line up perpendicular to the WR, then: crossover <b>shuffle</b> back &rarr; crossover <b>run</b> back (front foot arch to back foot toe) &rarr; coach points <b>L or R</b>: move at a 45&deg; angle — front shoulder down, shoulders &amp; hips open and pointing at the receiver, chin to chest, squeeze to the receiver's hip.</li>
+      <li>Stay <b>over the top</b> of the WR as long as you can — about an arm's length of cushion.</li>
+      <li><b>Finish:</b> coach throws it deep. <b>Sprint back in the weave stance</b> — do NOT open up into a flat backpedal — then go <b>high-point</b> the ball.</li>
+    </ol></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>Hips down, chest over knees — a tall pedal can't react.</li>
+    <li>Front foot arch to back foot toe on the crossover. Feet never tangle.</li>
+    <li>On the deep ball: weave-sprint, never flat backpedal — attack the ball in the air.</li></ul></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">next<br>~25 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#38bdf8">10/12</span>WR Route Drill — 1-on-1</div><div class="bmeta">WR vs DB · matched pairs · QB or coach throwing</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d41">1-on-1 Route Duel (WR vs DB)</a></h4>
+    <p>Once everyone has good DB School reps, add a WR for live 1-on-1. <b>Pair kids of similar skill and speed</b> — a mismatch teaches nobody anything.</p>
+    <ul>
+      <li><b>Routes:</b> go · dig · out · curl · comeback.</li>
+      <li><b>WRs:</b> attack the DB's <b>opposite hip</b>, maintain or create separation — and remember: it's not enough to be fast, you have to <b>stop on a dime</b> and change direction.</li>
+      <li><b>The sell:</b> drive the route hard toward the opposite direction, get the DB to flip his hips and commit — THEN cut and create separation.</li>
+      <li><b>DBs:</b> everything from the backpedal drill is live here — cushion, weave, patience. Don't flip until the route makes you.</li>
+    </ul></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>Sell it with the eyes and shoulders, not just the feet.</li>
+    <li>Separation comes from the STOP, not the sprint.</li>
+    <li>Re-pair the moment one kid wins three straight.</li></ul></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">6:10<br>~15 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#4ade80">8U</span>Pursuit Angles</div><div class="bmeta">Cones · flags on</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d27">Gate Pursuit (Grip &amp; Rip)</a> — coach's choice with <a class="dlink" href="index.html#d35">Flag-Pull Angle Progression</a></h4>
+    <p>Beat the runner to the spot: run to where he <b>will be</b>, not where he is. Body in front first, break down — no lunging — then two hands to the flag, grip and rip the plastic clip.</p>
+    <p>If the gate looks sharp, graduate to the three-stage progression: tunnel &rarr; zig-zag &rarr; open-field square.</p></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>A lunge that misses is a touchdown — patience beats speed.</li>
+    <li>Both hands, every pull.</li></ul></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">next<br>~15 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#4ade80">8U</span>Handoff Weave Relay</div><div class="bmeta">Two equal lines facing each other · 1 ball</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d42">Handoff Weave Relay</a></h4>
+    <ol>
+      <li>Two equal lines facing each other — Line A and Line B. First kid in Line A has the ball.</li>
+      <li>Staying to the <b>left</b>, first kid in A and first kid in B run at each other; A hands the ball off to B.</li>
+      <li>B <b>secures it</b>, keeps running, and hands it to the next kid coming from Line A.</li>
+      <li>That kid secures and carries it to the next Line B player... and on, and on.</li>
+      <li>Count the streak out loud — <b>how many clean handoffs in a row without a drop?</b> Beat the record every round.</li>
+    </ol></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>Secure, tuck, THEN run — the streak dies on kids who sprint before the ball is tucked.</li>
+    <li>Stay to the left every time — the lane discipline IS the drill.</li></ul></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">next<br>~25 min</div>
+    <div><div class="bname"><span class="stationtag" style="background:#4ade80">8U</span>Paper to Grass — Run Your Route</div><div class="bmeta">Route cards or whiteboard · cones for the first reps</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4><a class="dlink" href="index.html#d43">Paper to Grass (Run What You See)</a></h4>
+    <p>Show the route on paper &rarr; the kid lines himself up to match the picture — right side of the ball, right depth — &rarr; on "Hike!" he runs exactly what he saw, full speed, cut where the paper put it.</p>
+    <ul>
+      <li>First reps: cones mark the break point. Then take the cones away — the picture lives in his head.</li>
+      <li>Keep cards simple early (go, slant, out); rotate a new card and a new kid every rep.</li>
+    </ul></div>
+    <div class="cues"><h4>Coach it now</h4>
+    <ul><li>Lining up right is half the play — wrong side of the ball kills the route before the snap.</li>
+    <li>Full speed even off a card — a walked route teaches walking.</li></ul></div>
+  </div></div></div>
+</details>
+
+<div class="sect">Second block — play football</div>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">7:05<br>45 min</div>
+    <div><div class="bname">Scrimmage</div><div class="bmeta">Two fields · all coaches · flags on, pinnies out</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4>Format</h4>
+    <p><b>Field A</b> — 8U. <b>Field B</b> — 10/12, red vs blue straight from the drills. Rotate every kid through offense and defense.</p>
+    <p><b>Carry the drills onto the field:</b> on 10/12 defense, call the six zones before the snap and grade the help lanes; watch the DBs weave instead of flat-pedaling. On 8U, praise the clean mesh and the kid who lines up right without being told.</p>
+    <p>Let them play. Coach between snaps, not during them.</p></div>
+  </div></div></div>
+</details>
+
+<div class="sect">Close</div>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">7:50<br>10 min</div>
+    <div><div class="bname">End With A Game</div><div class="bmeta">Whole team · flags on</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><p>Coach's choice, made up on the fly.</p></div>
+  </div></div></div>
+</details>
+
+<details class="block">
+  <summary class="bhead">
+    <div class="time">8:00<br>2 min</div>
+    <div><div class="bname">Huddle &amp; Break</div><div class="bmeta">Whole team, knee down</div></div>
+    <span class="chev">&#9654;</span>
+  </summary>
+  <div class="bwrap"><div class="bbody"><div class="pad">
+    <div class="item"><h4>Say three names</h4>
+    <p>Three kids, three specific things — a zone called right, a weave that won a deep ball, a handoff streak kept alive. One sentence on next practice. Hands in, break on the team word.</p></div>
+  </div></div></div>
+</details>
+
+<div class="checklist">
+<h3>Before you leave</h3>
+<label><input type="checkbox"> Coaches' 5-min huddle: did the six zones stick? Which WR/DB pairings worked?</label>
+<label><input type="checkbox"> Note the standouts in the shared tracker's Notes column</label>
+<label><input type="checkbox"> Cones, route cards, flag belts and pinnies counted back in</label>
+<label><input type="checkbox"> Tell the kids next practice's plan in one sentence</label>
+</div>
+
+</main>
+
+<footer>Practice 14 of the 2026 season · 8U + 10U + 12U · built Oct 8, 2026</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, sun=document.getElementById('sun'), exp=document.getElementById('expand');
+  try{ if(localStorage.getItem('ffSun')==='1'){root.setAttribute('data-sun','1');} }catch(e){}
+  sun.addEventListener('click',function(){
+    var on=root.getAttribute('data-sun')==='1';
+    if(on){root.removeAttribute('data-sun');}else{root.setAttribute('data-sun','1');}
+    try{localStorage.setItem('ffSun',on?'0':'1');}catch(e){}
+  });
+  exp.addEventListener('click',function(){
+    var d=document.querySelectorAll('details'), any=false, i;
+    for(i=0;i<d.length;i++){ if(!d[i].open){any=true;break;} }
+    for(i=0;i<d.length;i++){ d[i].open=any; }
+    exp.textContent=any?'Close All':'Open All';
+  });
+  window.addEventListener('beforeprint',function(){
+    var d=document.querySelectorAll('details');
+    for(var i=0;i<d.length;i++){d[i].open=true;}
+  });
+})();
+</script>
+</body>
+</html>
